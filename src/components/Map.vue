@@ -5,14 +5,39 @@
             <div id="map"></div>
         </div>
     </div>
+    <Modal
+        v-show="isModalVisible"
+        @close="closeModal"
+    >
+
+    <template v-slot:header>
+        This is a new modal header.
+    </template>
+
+    <template v-slot:body>
+        This is a new modal body.
+    </template>
+
+    <template v-slot:footer>
+        This is a new modal footer.
+    </template>
+
+    </Modal>
 </main>
 </template>
 
 <script>
 
 import mapboxgl from "mapbox-gl"
+import Modal from "@/components/Modal.vue"
 
 export default {
+    
+    name: "Map",
+    components: {
+        Modal,
+    },
+
   data() {
     return {
       loading: false,
@@ -20,7 +45,8 @@ export default {
       access_token: "pk.eyJ1IjoiY291bnRuaWNrIiwiYSI6ImNrbHV6dTVpZDJibXgyd3FtenRtcThwYjYifQ.W_GWvRe3kX14Ef4oT50bSw",
       center: [-11.842459871932249, 8.300982115201037],
       map: {},
-    };
+      isModalVisible: false,
+    }
   },
 
   mounted() {
@@ -63,13 +89,17 @@ export default {
                     // }
                 });
                 
-                
-
                 this.map.on("click", "villages-layer", (e) => {
                     console.log(e)
-                    
+                    this.showModal()
                 })
             })
+      },
+      async showModal() {
+          this.isModalVisible = true;
+      },
+      async closeModal() {
+          this.isModalVisible = false;
       }
   }
 };

@@ -1,39 +1,41 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          This is the default title!
-        </slot>
-        <button
-          type="button"
-          class="btn-close"
-          @click="close"
-        >
-          x
-        </button>
-      </header>
+    <transition name="modal-fade">
+        <div class="modal-backdrop">
+            <div class="modal">
+            <header class="modal-header">
+                <slot name="header">
+                This is the default title!
+                </slot>
+                <button
+                type="button"
+                class="btn-close"
+                @click="close"
+                >
+                x
+                </button>
+            </header>
 
-      <section class="modal-body">
-        <slot name="body">
-          This is the default body!
-        </slot>
-       </section>
+            <section class="modal-body">
+                <slot name="body">
+                This is the default body!
+                </slot>
+            </section>
 
-      <footer class="modal-footer">
-        <slot name="footer">
-          This is the default footer!
-        </slot>
-        <button
-          type="button"
-          class="btn-green"
-          @click="close"
-        >
-          Close Modal
-        </button>
-      </footer>
-    </div>
-  </div>
+            <footer class="modal-footer">
+                <slot name="footer">
+                This is the default footer!
+                </slot>
+                <button
+                type="button"
+                class="btn-green"
+                @click="close"
+                >
+                Close Modal
+                </button>
+            </footer>
+            </div>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -66,6 +68,7 @@
     overflow-x: auto;
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .modal-header,
@@ -111,4 +114,15 @@
     border: 1px solid #4AAE9B;
     border-radius: 2px;
   }
+
+    .modal-fade-enter,
+  .modal-fade-leave-to {
+    opacity: 0;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity .5s ease;
+  }
+
 </style>
