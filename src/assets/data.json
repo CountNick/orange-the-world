@@ -1,0 +1,126 @@
+{
+    "type":"FeatureCollection",
+    "features":[
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 0,
+             "place_name":"Gendema"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-11.3977, 7.94065]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 1,
+             "place_name":"Kenema"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-11.1833326, 7.8833298]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 2,
+             "place_name":"Koidu"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-10.9714, 8.64387]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 3,
+             "place_name":"Kabala"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-11.558911, 9.584412]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 4,
+             "place_name":"Laia"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-12.8068, 8.51718]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 5,
+             "place_name":"Kamakwie"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-12.240487, 9.498121]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 6,
+             "place_name":"Roten"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-12.53224, 8.74438]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 7,
+             "place_name":"Port Loko"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-12.785352, 8.768689]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 8,
+             "place_name":"Tagrin"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-13.1333328, 8.5333312]
+          }
+       },
+       {
+          "type":"Feature",
+          "properties":{
+             "index": 9,
+             "place_name":"Freetown"
+          },
+          "geometry":{
+             "type":"Point",
+             "coordinates":
+                [-13.231722, 8.465677]
+          }
+       }
+       
+    ]
+}

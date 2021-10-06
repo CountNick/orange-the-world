@@ -1,32 +1,57 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!--Navbar Here -->
+    <div>
+      <nav>
+        <div class="header">
+          <h3>Orange the world</h3>
+        </div>
+      </nav>
     </div>
-    <router-view/>
+    <!--Index Page Here -->
+    <Map />
   </div>
 </template>
+<script>
 
-<style lang="less">
+import Map from "./components/Map.vue";
+
+export default {
+  name: "App",
+  components: {
+    Map,
+  },
+};
+</script>
+
+<style lang="less" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+html,
+body {
+  background: #fafcfd;
+  margin: 0;
+}
+nav {
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 58, 78, 0.15);
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 50px;
+}
+.header h3 {
+    text-align: center;
+    color: #fff;
+    /* font-size: 40px; */
+    text-shadow: 2px 2px 8px #ea5705;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
 }
 </style>
