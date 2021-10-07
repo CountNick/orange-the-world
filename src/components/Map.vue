@@ -11,15 +11,15 @@
     >
 
     <template v-slot:header>
-        This is a new modal header.
+        {{ place_data.place_name }}
     </template>
 
     <template v-slot:body>
-        This is a new modal body.
+        {{ place_data.information }}
     </template>
 
     <template v-slot:footer>
-        This is a new modal footer.
+        Stop number: {{ place_data.index }}
     </template>
 
     </Modal>
@@ -40,12 +40,16 @@ export default {
 
   data() {
     return {
-      loading: false,
       location: "",
       access_token: "pk.eyJ1IjoiY291bnRuaWNrIiwiYSI6ImNrbHV6dTVpZDJibXgyd3FtenRtcThwYjYifQ.W_GWvRe3kX14Ef4oT50bSw",
       center: [-11.842459871932249, 8.300982115201037],
       map: {},
       isModalVisible: false,
+      loading: false,
+      place_data: {
+          place_name: "plaatsie",
+          index: 100
+      },
     }
   },
 
@@ -88,9 +92,16 @@ export default {
                     //     "fill-outline-color" : "rgba(200, 100, 240, 1)"
                     // }
                 });
+                // console.log("place data: ", this.place_data)
                 
+
                 this.map.on("click", "villages-layer", (e) => {
-                    console.log(e)
+                    
+                    // store features in variable
+                    const clickedPlaceData = e.features[0].properties
+                    // replace data with clicked point data
+                    this.place_data = clickedPlaceData
+                    // show the popup
                     this.showModal()
                 })
             })
