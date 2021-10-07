@@ -5,37 +5,22 @@
             <div id="map"></div>
         </div>
     </div>
-    <Modal
-        v-show="isModalVisible"
-        @close="closeModal"
-    >
 
-    <template v-slot:header>
-        {{ place_data.place_name }}
-    </template>
+    <RouterView/>
 
-    <template v-slot:body>
-        {{ place_data.information }}
-    </template>
-
-    <template v-slot:footer>
-        Stop number: {{ place_data.index }}
-    </template>
-
-    </Modal>
 </main>
 </template>
 
 <script>
 
 import mapboxgl from "mapbox-gl"
-import Modal from "@/components/Modal.vue"
+
 
 export default {
     
     name: "Map",
     components: {
-        Modal,
+
     },
 
   data() {
@@ -101,8 +86,17 @@ export default {
                     const clickedPlaceData = e.features[0].properties
                     // replace data with clicked point data
                     this.place_data = clickedPlaceData
+                    
+
+                    this.$router.push({
+                        path: `/village/${this.place_data.index}`,
+                        query: { 
+                            place_name: this.place_data.place_name,
+                            information: this.place_data.information
+                            }
+                    })
                     // show the popup
-                    this.showModal()
+                    // this.showModal()
                 })
             })
       },

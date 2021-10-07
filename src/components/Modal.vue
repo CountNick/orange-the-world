@@ -4,12 +4,14 @@
             <div class="modal">
             <header class="modal-header">
                 <slot name="header">
-                This is the default title!
+                
+                {{ place_name }}
+            
                 </slot>
                 <button
                 type="button"
                 class="btn-close"
-                @click="close"
+                @click="$router.back()"
                 >
                 x
                 </button>
@@ -17,13 +19,13 @@
 
             <section class="modal-body">
                 <slot name="body">
-                This is the default body!
+                {{ information }}
                 </slot>
             </section>
 
             <footer class="modal-footer">
                 <slot name="footer">
-                This is the default footer!
+                {{ index }}
                 </slot>
                 <button
                 type="button"
@@ -39,8 +41,25 @@
 </template>
 
 <script>
+
+
   export default {
     name: 'Modal',
+    data() {
+        return {
+            place_name: "This is the default title!",
+            information: "This is the default body!",
+            index: "null"
+        }
+    },
+    mounted() {
+        console.log(this.$route.query)
+
+        this.place_name = this.$route.query.place_name
+        this.information = this.$route.query.information
+        this.index = this.$route.params.index
+
+    },
     methods: {
       close() {
         this.$emit('close');
