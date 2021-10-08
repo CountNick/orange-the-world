@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import MapView from '../views/MapView.vue'
 import Modal from '../components/Modal.vue'
 
 Vue.use(VueRouter)
@@ -10,6 +11,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/map',
+    name: 'Map',
+    component: MapView,
     children: [
       {
         path: '/village/:index',

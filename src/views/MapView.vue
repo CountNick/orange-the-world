@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <Introduction/>
+  <div class="map-view">
+    <Map />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import Introduction from '@/components/Introduction.vue'
+import Map from '@/components/Map.vue'
 
 export default {
-  name: 'Home',
+  name: 'Map-View',
   components: {
-    Introduction
+    Map
   }
 }
 </script>
