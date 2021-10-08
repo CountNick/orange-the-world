@@ -4,7 +4,8 @@
     <div>
       <nav>
         <div class="header">
-          <h3>Orange the world</h3>
+          <h3 class="header__title">Orange the world</h3>
+          <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
         </div>
       </nav>
     </div>
@@ -54,4 +55,18 @@ nav {
     letter-spacing: 8px;
     text-transform: uppercase;
 }
+
+.header__img {
+  width: 20%;
+}
+
+@media only screen and (min-width: 750px) {
+
+  .header__img {
+  width: 5%;
+}
+
+}
+
+
 </style>
