@@ -6,7 +6,15 @@
           "properties":{
              "index": 0,
              "place_name":"Gendema",
-             "information": "Gendema is a rural town in Pujehun District in the Southern Province of Sierra Leone. Gendema lies in the far Southern part of Sierra Leone, on the international border with the Republic of Liberia. Gendema is the chieftaincy seat of Soro Gbema Chiefdom and is a trading center between Sierra Leoneans and Liberians across the border. The principal inhabitants of gendema are the Mende, Vai and Kissi people."
+             "information": "Gendema is a rural town in Pujehun District in the Southern Province of Sierra Leone. Gendema lies in the far Southern part of Sierra Leone, on the international border with the Republic of Liberia. Gendema is the chieftaincy seat of Soro Gbema Chiefdom and is a trading center between Sierra Leoneans and Liberians across the border. The principal inhabitants of gendema are the Mende, Vai and Kissi people.",
+             "images": [
+                 {
+                     "main": "https://i.pinimg.com/originals/b3/8d/51/b38d51881450bc1fe1b7b7d49109eb84.jpg"
+                 },
+                 {
+                     "secondary": "https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG"
+                 }
+             ]
           },
           "geometry":{
              "type":"Point",
