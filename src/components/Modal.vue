@@ -19,20 +19,29 @@
 
             <section class="modal-body">
                 <slot name="body">
+                    <carousel :perPage="1">
+  <slide>
+    <img class="carousel__img" src="https://i.pinimg.com/originals/b3/8d/51/b38d51881450bc1fe1b7b7d49109eb84.jpg" alt="">
+  </slide>
+  <slide>
+    <img class="carousel__img" src="https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG" alt="">
+  </slide>
+</carousel>
+
                 {{ information }}
                 </slot>
             </section>
 
             <footer class="modal-footer">
                 <slot name="footer">
-                {{ index }}
+                Stop number: {{ index }}
                 </slot>
                 <button
                 type="button"
                 class="btn-green"
-                @click="close"
+                @click="$router.back()"
                 >
-                Close Modal
+                Back
                 </button>
             </footer>
             </div>
@@ -42,9 +51,14 @@
 
 <script>
 
+import { Carousel, Slide } from 'vue-carousel';
 
   export default {
     name: 'Modal',
+    components: {
+        Carousel,
+        Slide
+    },
     data() {
         return {
             place_name: "This is the default title!",
@@ -88,6 +102,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
   }
 
   .modal-header,
@@ -99,7 +114,7 @@
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
+    color: #ea5705;
     justify-content: space-between;
   }
 
@@ -123,14 +138,15 @@
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: #4AAE9B;
+    color: #ea5705;
     background: transparent;
   }
 
   .btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: #ea5705;
+    border: 1px solid #ea5705;
+    font-size: .9em;
     border-radius: 2px;
   }
 
@@ -144,4 +160,28 @@
     transition: opacity .5s ease;
   }
 
+  .carousel__img {
+      width: 100%;
+  }
+
+  @media only screen and (min-width: 750px) {
+
+      .modal-backdrop {
+          justify-content: flex-end;
+      }
+
+      .modal-header {
+          font-size: 1.2em;
+      }
+
+      .modal {
+          width: 50%;
+          height: 100vh;
+          justify-content: space-between;
+      }
+
+  }
+
 </style>
+
+// source used: https://www.digitalocean.com/community/tutorials/vuejs-vue-modal-component
