@@ -10,17 +10,19 @@
       </nav>
     </div>
     <!--Index Page Here -->
+    <Locator/>
     <router-view/>
   </div>
 </template>
+
 <script>
 
-
+import Locator from '@/components/Locator.vue';
 
 export default {
   name: "App",
   components: {
-
+    Locator
   },
 };
 </script>
