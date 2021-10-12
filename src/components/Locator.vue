@@ -52,7 +52,8 @@
             startLocation: null,
             traveledDistance: null,
             // stopWatching: false
-            functionIsRunning: false
+            functionIsRunning: false,
+            passedLocations: []
         }
     },
     created() {
@@ -92,7 +93,12 @@
         
         console.log(position.coords);
         this.location = position
-        this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+
+        this.passedLocations.push(this.location)
+        const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
+        console.log('passed locations, last one: ', lastPassedLocation)
+        
+        this.traveledDistance = this.calculateDistance(lastPassedLocation.coords.latitude, lastPassedLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
 
         //             if(this.stopWatching === true) {
         //     console.log('going to stop watching')
@@ -115,7 +121,7 @@
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
             const d = R * c;
 
-            this.traveledDistance = d
+            return d
 
         },
         stopRoute() {
