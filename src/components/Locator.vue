@@ -22,6 +22,18 @@
   <div v-if="traveledDistance">
     Traveled distance: {{ traveledDistance }} KM
   </div>
+
+  <button v-if="location === null" class="locator-start__btn"
+    v-on:click="startLocator"
+  >
+      Start route
+  </button>
+
+  <button v-if="location" class="locator-start__btn"
+    v-on:click="functionIsRunning = false; stopRoute()"
+  >
+      Stop route
+  </button>
   
 </div>
 
@@ -38,23 +50,33 @@
             gettingLocation: false,
             errorStr: null,
             startLocation: null,
-            traveledDistance: null
+            traveledDistance: null,
+            // stopWatching: false
+            functionIsRunning: false
         }
     },
     created() {
         // do we support geolocation
 
         /** Converts numeric degrees to radians */
-if (typeof(Number.prototype.toRad) === "undefined") {
-  Number.prototype.toRad = function() {
-    return this * Math.PI / 180;
-  }
-}
+        if (typeof(Number.prototype.toRad) === "undefined") {
+        Number.prototype.toRad = function() {
+            return this * Math.PI / 180;
+        }
+        }
 
         if(!('geolocation' in navigator)) {
             this.errorStr = 'Geolocation is not available.';
         }
 
+    },
+    methods: {
+        startLocator() {
+        console.log(this.functionIsRunning)
+        if(!this.functionIsRunning) {
+            this.functionIsRunning = true
+        }
+        console.log(this.functionIsRunning)
         this.gettingLocation = true;
         // get position
         navigator.geolocation.getCurrentPosition(pos => {
@@ -71,11 +93,16 @@ if (typeof(Number.prototype.toRad) === "undefined") {
         console.log(position.coords);
         this.location = position
         this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+
+        //             if(this.stopWatching === true) {
+        //     console.log('going to stop watching')
+        //     return;
+        // }
+
         });
 
-    },
-    methods: {
-        async UpdatePosition() {
+        
+        if(!this.functionIsRunning) return
             
         },
         calculateDistance(lat1, long1, lat2, long2) {
@@ -90,6 +117,13 @@ if (typeof(Number.prototype.toRad) === "undefined") {
 
             this.traveledDistance = d
 
+        },
+        stopRoute() {
+            this.startLocation = null
+            this.location = null
+            this.traveledDistance = null
+            // this.stopWatching = true
+            console.log('function is running: ', this.functionIsRunning)
         }
     }
   };
