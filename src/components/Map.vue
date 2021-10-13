@@ -1,11 +1,12 @@
 <template>
 <main>
+    <Locator/>
     <div>
         <div class="map-holder">
             <div id="map"></div>
         </div>
     </div>
-
+    
     <RouterView/>
 
 </main>
@@ -14,12 +15,15 @@
 <script>
 
 import mapboxgl from 'mapbox-gl'
+import Locator from '@/components/Locator.vue';
+
 
 
 export default {
     
     name: 'Map',
     components: {
+        Locator,
 
     },
 
@@ -32,7 +36,8 @@ export default {
       loading: false,
       place_data: {
           place_name: "place name",
-          index: 100
+          index: 100,
+          information: "sample info"
       },
     }
   },
@@ -99,13 +104,34 @@ export default {
                     // show the popup
                     // this.showModal()
                 })
+
+                this.map.getSource('villages')._options.data.features.map(village => {
+                    console.log(village)
+
+                    const diffLong = village.geometry.coordinates[0] + 0.00014974447299209714;
+                    const diffLat = village.geometry.coordinates[1] + 0.2928258217985239753;
+
+                    const label = document.createElement('div')
+                    label.textContent = `You just entered ${village.properties.place_name}`
+                    label.id = village.properties.index
+                    label.className = "village-marker"
+
+                    new mapboxgl.Marker(label)
+                        .setLngLat([diffLong, diffLat])
+                        .addTo(this.map)
+
+
+                })
             })
       },
       async showModal() {
           this.isModalVisible = true;
       },
       async closeModal() {
-          this.isModalVisible = false;
+            this.isModalVisible = false;
+      },
+      renderLabels() {
+            return this.$createElement('div', 'Marker')
       }
   }
 };
@@ -122,6 +148,24 @@ export default {
 
         height: 100vh;
         width: 100%;
+    }
+
+    .village-marker {
+        background: white;
+        padding: 0.3em;
+    }
+
+    .village-marker::after {
+        content: "";
+        position: absolute;
+        left: 43%;
+        top: 100%;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #f7f7f7;
+        clear: both;
     }
 
 </style>

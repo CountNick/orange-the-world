@@ -98,7 +98,7 @@
         // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
         
         this.traveledDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
-
+        
 
         });
 
@@ -132,3 +132,19 @@
 
 // https://www.html5rocks.com/en/tutorials/geolocation/trip_meter/
 // https://stackoverflow.com/questions/5260423/torad-javascript-function-throwing-error
+
+<style lang="less" scoped>
+    #locator {
+        position: fixed;
+        z-index: 2;
+        color: #ea5705;
+    }
+
+    button {
+        background: #ea5705;
+        border: none;
+        color: white;
+        padding: 1em;
+    }
+
+</style>
