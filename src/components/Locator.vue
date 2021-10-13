@@ -95,15 +95,10 @@
         this.location = position
 
         this.passedLocations.push(this.location)
-        const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
-        console.log('passed locations, last one: ', lastPassedLocation)
+        // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
         
-        this.traveledDistance = this.calculateDistance(lastPassedLocation.coords.latitude, lastPassedLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+        this.traveledDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
 
-        //             if(this.stopWatching === true) {
-        //     console.log('going to stop watching')
-        //     return;
-        // }
 
         });
 
