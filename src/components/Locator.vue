@@ -108,8 +108,9 @@
         const passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
 
         if(currentVillage.id == this.$showMarker) {
-                    currentVillage.style.visibility = 'visible'
-                    passedVillage.style.visibility = 'hidden'
+            navigator.vibrate(200)
+            currentVillage.style.visibility = 'visible'
+            passedVillage.style.visibility = 'hidden'
         } 
         
 
