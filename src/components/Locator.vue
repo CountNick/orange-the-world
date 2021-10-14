@@ -53,7 +53,7 @@
             traveledDistance: null,
             // stopWatching: false
             functionIsRunning: false,
-            passedLocations: []
+            passedLocations: [],
         }
     },
     created() {
@@ -98,6 +98,19 @@
         // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
         
         this.traveledDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+
+        if(this.traveledDistance >= 1 || this.traveledDistance >= 2 || this.traveledDistance >= 3 || this.traveledDistance >= 4 || this.traveledDistance >= 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance >= 8 || this.traveledDistance >= 9) {
+            this.$showMarker = this.$showMarker + 1
+            console.log(this.$showMarker)
+        }
+
+        const currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+        const passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
+
+        if(currentVillage.id == this.$showMarker) {
+                    currentVillage.style.visibility = 'visible'
+                    passedVillage.style.visibility = 'hidden'
+        } 
         
 
         });

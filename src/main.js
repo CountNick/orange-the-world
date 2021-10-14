@@ -6,6 +6,7 @@ import VueCarousel from 'vue-carousel';
 
 Vue.config.productionTip = false
 Vue.use(VueCarousel)
+Vue.prototype.$showMarker = 0
 
 new Vue({
   router,

@@ -39,6 +39,7 @@ export default {
           index: 100,
           information: "sample info"
       },
+    //   showMarker: 4
     }
   },
 
@@ -49,7 +50,7 @@ export default {
 
   methods: {
       async createMap() {
-          try {
+        try {
               mapboxgl.accessToken = this.access_token;
               this.map = new mapboxgl.Map({
                   container: 'map',
@@ -57,9 +58,9 @@ export default {
                   center: this.center,
                   zoom: 6
               });
-          } catch(err) {
+        } catch(err) {
               console.log('an error occured: ', err);
-          }
+        }
       },
       async plotVillages() {
 
@@ -114,18 +115,27 @@ export default {
                     const label = document.createElement('div')
                     label.textContent = `You just entered ${village.properties.place_name}`
                     label.id = village.properties.index
-                    label.className = "village-marker"
+                    label.className = 'village-marker'
 
                     new mapboxgl.Marker(label)
                         .setLngLat([diffLong, diffLat])
-                        .addTo(this.map)
-
-
+                        .addTo(this.map);
                 })
+                
+                // const currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+
+                // if(currentVillage.id == this.$showMarker) {
+                //     currentVillage.style.visibility = 'visible'
+                // } else {
+                //     currentVillage.style.visibility = 'hidden'
+                // }
+
+                
+
             })
       },
       async showModal() {
-          this.isModalVisible = true;
+            this.isModalVisible = true;
       },
       async closeModal() {
             this.isModalVisible = false;
@@ -153,6 +163,7 @@ export default {
     .village-marker {
         background: white;
         padding: 0.3em;
+        visibility: hidden;
     }
 
     .village-marker::after {
