@@ -1,5 +1,5 @@
 <template>
-    <transition name="modal-fade">
+    <transition name="page-fade">
         <div class="modal-backdrop">
             <div class="modal">
             <header class="modal-header">
@@ -104,6 +104,7 @@ import { Carousel, Slide } from 'vue-carousel';
     flex-direction: column;
     width: 100%;
     height: 100%;
+    background: #000;
   }
 
   .modal-header,
@@ -114,13 +115,14 @@ import { Carousel, Slide } from 'vue-carousel';
 
   .modal-header {
     position: relative;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #ea5705;
     color: #ea5705;
     justify-content: space-between;
+    font-weight: 600;
   }
 
   .modal-footer {
-    border-top: 1px solid #eeeeee;
+    /* border-top: 1px solid #eeeeee; */
     flex-direction: column;
     justify-content: flex-end;
   }
@@ -128,6 +130,7 @@ import { Carousel, Slide } from 'vue-carousel';
   .modal-body {
     position: relative;
     padding: 20px 10px;
+    color: #fff;
   }
 
   .btn-close {
@@ -151,13 +154,13 @@ import { Carousel, Slide } from 'vue-carousel';
     border-radius: 2px;
   }
 
-    .modal-fade-enter,
-  .modal-fade-leave-to {
+    .page-fade-enter,
+  .page-fade-leave-to {
     opacity: 0;
   }
 
-  .modal-fade-enter-active,
-  .modal-fade-leave-active {
+  .page-fade-enter-active,
+  .page-fade-leave-active {
     transition: opacity .5s ease;
   }
 

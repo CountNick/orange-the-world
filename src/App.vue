@@ -5,13 +5,17 @@
       <nav>
         <div class="header">
           <h3 class="header__title">Orange the world</h3>
+          <router-link to="/">
           <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
+          </router-link>
         </div>
       </nav>
     </div>
     <!--Index Page Here -->
+    <transition name="page-fade">
+      <router-view/>
+    </transition>
 
-    <router-view/>
   </div>
 </template>
 
@@ -36,7 +40,6 @@ export default {
 }
 html,
 body {
-  background: #fafcfd;
   margin: 0;
 }
 nav {
@@ -62,8 +65,12 @@ nav {
     text-transform: uppercase;
 }
 
+.header a {
+  width: 10%;
+}
+
 .header__img {
-  width: 20%;
+  width: 100%;
 }
 
 @media only screen and (min-width: 750px) {

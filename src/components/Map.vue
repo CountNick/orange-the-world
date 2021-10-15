@@ -1,12 +1,14 @@
-<template>
+<template v-if="loading == false">
 <main>
     <Locator/>
-        <div class="map-holder">
+    <transition name="page-fade">
+        <div class="map-holder" v-show="mapLoaded">
             <div id="map"></div>
         </div>
-    
+    </transition>
+    <transition name="page-fade">
     <RouterView/>
-
+    </transition>
 </main>
 </template>
 
@@ -30,8 +32,9 @@ export default {
       access_token: 'pk.eyJ1IjoiY291bnRuaWNrIiwiYSI6ImNrbHV6dTVpZDJibXgyd3FtenRtcThwYjYifQ.W_GWvRe3kX14Ef4oT50bSw',
       center: [-11.842459871932249, 8.300982115201037],
       map: {},
+      mapLoaded: false,
       isModalVisible: false,
-      loading: false,
+      loading: true,
       place_data: {
           place_name: "place name",
           index: 100,
@@ -63,7 +66,13 @@ export default {
       async plotVillages() {
 
             this.map.on('load', () => {
-
+                this.mapLoaded = true
+                if(this.mapLoaded === true) {
+                    setTimeout(() => {
+                        console.log('resize now man')
+                        this.map.resize()
+                    }, 1);
+                }
                 const json = require('../assets/data.json')
 
                 this.map.addSource('villages', {
@@ -147,11 +156,6 @@ export default {
 
 <style lang="less">
 
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
     .map-view, main, .map-holder, #map {
         height: 100%;
     }
@@ -186,6 +190,8 @@ export default {
         border-top: 10px solid #ea5705;
         clear: both;
     }
+
+
 
     @keyframes pulse {
 	0% {
