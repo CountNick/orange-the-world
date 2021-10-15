@@ -1,5 +1,6 @@
 <template>
-    <article class="introduction__article">
+    <transition name="page-fade">
+    <article class="introduction__article" v-show="loading == false">
         <h1 class="introduction__title">The walk against gender based violence</h1>
         <div>
         <img class="introduction__img" src="https://static.spacecrafted.com/f37fddf4d72c4bd1b48e97008a4a78ba/i/d29ef1e47a324d899cec873587a04846/1/4SoifmQp45JMgBnHp7ed2/Hindolo%20Pokawa.jpg" alt="">
@@ -12,7 +13,25 @@
         <router-link class="cta-btn" to="/map" tag="button">Checkout Hindolo's itinerary</router-link>
     
     </article>
+    </transition>
 </template>
+
+<script>
+export default {
+    name: 'Introduction',
+    data() {
+        return {
+            loading: true
+        }
+    },
+    mounted(){
+
+        setTimeout(() => {
+            this.loading = false
+        }, 1);
+    }
+}
+</script>
 
 
 <style lang="less">

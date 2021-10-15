@@ -66,13 +66,14 @@ export default {
       async plotVillages() {
 
             this.map.on('load', () => {
-                this.mapLoaded = true
-                if(this.mapLoaded === true) {
+                // this.mapLoaded = true
+                // if(this.mapLoaded === true) {
                     setTimeout(() => {
-                        console.log('resize now man')
                         this.map.resize()
                     }, 1);
-                }
+                // }
+
+                this.mapLoaded = true
                 const json = require('../assets/data.json')
 
                 this.map.addSource('villages', {
