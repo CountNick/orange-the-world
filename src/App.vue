@@ -32,6 +32,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
 html,
 body {
@@ -47,6 +48,9 @@ nav {
   flex-direction: row;
   align-items: center;
   padding: 0px 50px;
+  background: rgba(1, 1, 1, 0.5);
+  position: fixed;
+  z-index: 2;
 }
 .header h3 {
     text-align: center;

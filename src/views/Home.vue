@@ -28,6 +28,7 @@ export default {
 <style scoped lang="less">
 .home {
     height: 100vh;
+    background: #000;
 }
 
     .page-fade-enter,

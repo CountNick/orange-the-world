@@ -93,6 +93,7 @@ import { Carousel, Slide } from 'vue-carousel';
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 4;
   }
 
   .modal {

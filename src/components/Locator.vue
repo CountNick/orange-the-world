@@ -150,8 +150,11 @@
 <style lang="less" scoped>
     #locator {
         position: fixed;
-        z-index: 2;
+        z-index: 3;
         color: #ea5705;
+        bottom: 0;
+        width: 100%;
+        background: black;
     }
 
     button {

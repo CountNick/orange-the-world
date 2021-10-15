@@ -1,6 +1,6 @@
 <template>
     <article class="introduction__article">
-        <h1>The walk against gender based violence</h1>
+        <h1 class="introduction__title">The walk against gender based violence</h1>
         <div>
         <img class="introduction__img" src="https://static.spacecrafted.com/f37fddf4d72c4bd1b48e97008a4a78ba/i/d29ef1e47a324d899cec873587a04846/1/4SoifmQp45JMgBnHp7ed2/Hindolo%20Pokawa.jpg" alt="">
 
@@ -19,6 +19,8 @@
 
     .introduction__article {
         margin: 0 1em;
+        color: #fff;
+        padding-top: 20%;
     }
 
     .introduction__img {
@@ -30,6 +32,11 @@
         border: 3px solid #ea5705;
         border-radius: .2em;
         color: #ffffff;
+    }
+
+    .introduction__title {
+        margin: 0;
+        color: #ea5705;
     }
 
 </style>

@@ -1,11 +1,9 @@
 <template>
 <main>
     <Locator/>
-    <div>
         <div class="map-holder">
             <div id="map"></div>
         </div>
-    </div>
     
     <RouterView/>
 
@@ -154,16 +152,26 @@ export default {
         padding: 0;
     }
 
-    #map {
-
-        height: 100vh;
-        width: 100%;
+    .map-view, main, .map-holder, #map {
+        height: 100%;
     }
+
+    // #map {
+
+    //     height: 100%;
+    //     // width: 100%;
+    // }
 
     .village-marker {
         background: white;
         padding: 0.3em;
         visibility: hidden;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+        // transform: scale(1);
+        // animation: pulse 2s infinite;
+        background: #ea5705;
+        color: #fff;
+        border-radius: 5px;
     }
 
     .village-marker::after {
@@ -175,8 +183,25 @@ export default {
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #f7f7f7;
+        border-top: 10px solid #ea5705;
         clear: both;
+    }
+
+    @keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
     }
 
 </style>
