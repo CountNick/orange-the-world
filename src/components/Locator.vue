@@ -19,7 +19,7 @@
     Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
   </div>
 
-  <div v-if="traveledDistance">
+  <div v-if="location">
     Traveled distance: {{ traveledDistance }} KM
   </div>
 
