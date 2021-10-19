@@ -66,7 +66,7 @@ nav {
 }
 
 .header a {
-  width: 10%;
+  width: 30%;
 }
 
 .header__img {

@@ -39,7 +39,7 @@ export default {
     .introduction__article {
         margin: 0 1em;
         color: #fff;
-        padding-top: 20%;
+        padding-top: 30%;
     }
 
     .introduction__img {

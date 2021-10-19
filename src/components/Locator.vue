@@ -54,6 +54,9 @@
             // stopWatching: false
             functionIsRunning: false,
             passedLocations: [],
+            watchId: null,
+            currentVillage: null,
+            passedVillage: null
         }
     },
     created() {
@@ -89,7 +92,7 @@
             this.errorStr = err.message
         })
 
-        navigator.geolocation.watchPosition((position) => {
+        this.watchId = navigator.geolocation.watchPosition((position) => {
         
         console.log(position.coords);
         this.location = position
@@ -97,20 +100,25 @@
         this.passedLocations.push(this.location)
         // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
         
-        this.traveledDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+        const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+        
+        this.traveledDistance = Math.round(unformattedDistance *100) / 100
+
+        console.log(Math.round(this.traveledDistance *100)/100)
+        console.log(this.traveledDistance)
 
         if(this.traveledDistance >= 1 || this.traveledDistance >= 2 || this.traveledDistance >= 3 || this.traveledDistance >= 4 || this.traveledDistance >= 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance >= 8 || this.traveledDistance >= 9) {
             this.$showMarker = this.$showMarker + 1
             console.log(this.$showMarker)
         }
 
-        const currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
-        const passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
+        this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+        this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
 
-        if(currentVillage.id == this.$showMarker) {
+        if(this.currentVillage.id == this.$showMarker) {
             navigator.vibrate(200)
-            currentVillage.style.visibility = 'visible'
-            passedVillage.style.visibility = 'hidden'
+            this.currentVillage.style.visibility = 'visible'
+            this.passedVillage.style.visibility = 'hidden'
         } 
         
 
@@ -138,7 +146,17 @@
             this.location = null
             this.traveledDistance = null
             // this.stopWatching = true
+            this.$showMarker = 0
+            this.currentVillage.style.visibility = 'hidden'
+            this.passedVillage.style.visibility = 'hidden'
+            this.currentVillage = null
+            this.passedVillage = null
+            navigator.geolocation.clearWatch(this.watchId)
+            
             console.log('function is running: ', this.functionIsRunning)
+        },
+        checkId() {
+
         }
     }
   };

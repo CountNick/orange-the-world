@@ -177,6 +177,7 @@ export default {
         background: #ea5705;
         color: #fff;
         border-radius: 5px;
+        animation: glow 2s infinite alternate;
     }
 
     .village-marker::after {
@@ -194,21 +195,13 @@ export default {
 
 
 
-    @keyframes pulse {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
-    }
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+}
 
 </style>
