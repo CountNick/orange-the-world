@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MapView from '../views/MapView.vue'
 import Modal from '../components/Modal.vue'
+import Explanation from '../components/Explanation.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,10 @@ const routes = [
         path: '/village/:index',
         component: Modal
       },
+      {
+        path: '/explanation',
+        component: Explanation
+      }
     ],
   },
   {

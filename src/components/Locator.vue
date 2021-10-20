@@ -23,17 +23,27 @@
     Traveled distance: {{ traveledDistance }} KM
   </div>
 
+  <div class="btn__container">
+
+  
+
   <button v-if="location === null" class="locator-start__btn"
     v-on:click="startLocator"
   >
       Start route
   </button>
 
-  <button v-if="location" class="locator-start__btn"
+    <button v-if="location" class="locator-start__btn"
     v-on:click="functionIsRunning = false; stopRoute()"
   >
       Stop route
   </button>
+
+  <router-link class="locator-help__btn" to="/explanation" tag="button">Help</router-link>
+
+  </div>
+
+
   
 </div>
 
@@ -76,11 +86,11 @@
     },
     methods: {
         startLocator() {
-        console.log(this.functionIsRunning)
+    
         if(!this.functionIsRunning) {
             this.functionIsRunning = true
         }
-        console.log(this.functionIsRunning)
+   
         this.gettingLocation = true;
         // get position
         navigator.geolocation.getCurrentPosition(pos => {
@@ -94,7 +104,7 @@
 
         this.watchId = navigator.geolocation.watchPosition((position) => {
         
-        console.log(position.coords);
+        
         this.location = position
 
         this.passedLocations.push(this.location)
@@ -104,12 +114,11 @@
         
         this.traveledDistance = Math.round(unformattedDistance *100) / 100
 
-        console.log(Math.round(this.traveledDistance *100)/100)
-        console.log(this.traveledDistance)
+        
 
         if(this.traveledDistance >= 1 || this.traveledDistance >= 2 || this.traveledDistance >= 3 || this.traveledDistance >= 4 || this.traveledDistance >= 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance >= 8 || this.traveledDistance >= 9) {
             this.$showMarker = this.$showMarker + 1
-            console.log(this.$showMarker)
+            
         }
 
         this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
@@ -118,7 +127,12 @@
         if(this.currentVillage.id == this.$showMarker) {
             navigator.vibrate(200)
             this.currentVillage.style.visibility = 'visible'
-            this.passedVillage.style.visibility = 'hidden'
+            console.log('passed village: ', this.passedVillage)
+
+            if(typeof this.passedVillage !== 'undefined') {
+              this.passedVillage.style.visibility = 'hidden'
+            }
+            
         } 
         
 
@@ -148,12 +162,14 @@
             // this.stopWatching = true
             this.$showMarker = 0
             this.currentVillage.style.visibility = 'hidden'
-            this.passedVillage.style.visibility = 'hidden'
+            if(typeof this.passedVillage !== 'undefined') {
+              this.passedVillage = null
+            }
+            
             this.currentVillage = null
-            this.passedVillage = null
+
             navigator.geolocation.clearWatch(this.watchId)
             
-            console.log('function is running: ', this.functionIsRunning)
         },
         checkId() {
 
@@ -180,6 +196,12 @@
         border: none;
         color: white;
         padding: 1em;
+    }
+
+    .btn__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
 </style>

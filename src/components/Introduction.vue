@@ -10,7 +10,7 @@
         </p>
         </div>
       
-        <router-link class="cta-btn" to="/map" tag="button">Checkout Hindolo's itinerary</router-link>
+        <router-link class="cta-btn" to="/explanation" tag="button">Checkout Hindolo's route</router-link>
     
     </article>
     </transition>
