@@ -129,15 +129,47 @@ export default {
                         .setLngLat([diffLong, diffLat])
                         .addTo(this.map);
                 })
+        
+                const pairedData = json.features.reduce((result, value, index, array) => {
+                    if (index % 1 === 0) result.push(array.slice(index, index + 2));
+                    return result;
+                }, []);
+
                 
-                // const currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+                
+                pairedData.forEach(async (pair, index) => {
+                    console.log(index)
+                    
+                    
+                    const routeData = await this.fetchRoutes(pair[0].geometry.coordinates, pair[1].geometry.coordinates)
 
-                // if(currentVillage.id == this.$showMarker) {
-                //     currentVillage.style.visibility = 'visible'
-                // } else {
-                //     currentVillage.style.visibility = 'hidden'
-                // }
+                                    this.map.addSource(`route-${index}`, {
+                    // Add a new source to the map style: https://docs.mapbox.com/mapbox-gl-js/api/#map#addsource
+                    type: "geojson",
+                    data: {
+                        type: "FeatureCollection",
+                        features: [],
+                    },
+                    });
 
+                this.map.addLayer({
+                    id: `route-${index}-layer`,
+                    type: "line",
+                    source: `route-${index}`,
+                    layout: {
+                    "line-join": "round",
+                    "line-cap": "round",
+                    },
+                    paint: {
+                    "line-color": "#ea5705",
+                    "line-width": 4,
+                    "line-opacity": 1,
+                    },
+                });
+
+                    this.map.getSource(`route-${index}`).setData(routeData.routes[0].geometry)
+                    // console.log('map: ', routeData.routes[0].geometry)
+                })
                 
 
             })
@@ -150,6 +182,12 @@ export default {
       },
       renderLabels() {
             return this.$createElement('div', 'Marker')
+      },
+      async fetchRoutes(startCoords, endCoords) {
+          // fetch and wait for esponse
+          const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/walking/${startCoords[0]},${startCoords[1]};${endCoords[0]},${endCoords[1]}?geometries=geojson&access_token=${this.access_token}`)
+          // return data in json format
+          return await response.json()
       }
   }
 };
