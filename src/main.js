@@ -8,6 +8,8 @@ require('./assets/styles/main.css');
 Vue.config.productionTip = false
 Vue.use(VueCarousel)
 Vue.prototype.$showMarker = 0
+Vue.prototype.$map = {}
+export const eventBus = new Vue()
 
 new Vue({
   router,

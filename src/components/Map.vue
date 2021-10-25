@@ -16,6 +16,7 @@
 
 import mapboxgl from 'mapbox-gl'
 import Locator from '@/components/Locator.vue';
+import { eventBus } from '../main'
 
 
 
@@ -64,7 +65,6 @@ export default {
         }
       },
       async plotVillages() {
-
             this.map.on('load', () => {
                 // this.mapLoaded = true
                 // if(this.mapLoaded === true) {
@@ -138,38 +138,70 @@ export default {
                 
                 
                 pairedData.forEach(async (pair, index) => {
-                    console.log(index)
                     
-                    
-                    const routeData = await this.fetchRoutes(pair[0].geometry.coordinates, pair[1].geometry.coordinates)
+                    if(pair.length === 2) {
+                        const routeData = await this.fetchRoutes(pair[0].geometry.coordinates, pair[1].geometry.coordinates)
 
-                                    this.map.addSource(`route-${index}`, {
-                    // Add a new source to the map style: https://docs.mapbox.com/mapbox-gl-js/api/#map#addsource
-                    type: "geojson",
-                    data: {
-                        type: "FeatureCollection",
-                        features: [],
-                    },
+                                            this.map.addSource(`route-${index}`, {
+                        // Add a new source to the map style: https://docs.mapbox.com/mapbox-gl-js/api/#map#addsource
+                        type: "geojson",
+                        data: {
+                            type: "FeatureCollection",
+                            features: [],
+                        },
+                    });
+                    
+                    this.map.addSource(`route-outline-${index}`, {
+                        // Add a new source to the map style: https://docs.mapbox.com/mapbox-gl-js/api/#map#addsource
+                        type: "geojson",
+                        data: {
+                            type: "FeatureCollection",
+                            features: [],
+                        },
                     });
 
-                this.map.addLayer({
-                    id: `route-${index}-layer`,
-                    type: "line",
-                    source: `route-${index}`,
-                    layout: {
-                    "line-join": "round",
-                    "line-cap": "round",
-                    },
-                    paint: {
-                    "line-color": "#ea5705",
-                    "line-width": 4,
-                    "line-opacity": 1,
-                    },
-                });
+                    this.map.addLayer({
+                        id: `route-${index}-layer`,
+                        type: "line",
+                        source: `route-${index}`,
+                        layout: {
+                        "line-join": "round",
+                        "line-cap": "round",
+                        },
+                        paint: {
+                        "line-color": "#ea5705",
+                        "line-width": 4,
+                        "line-opacity": 1,
+                        },
+                    }, 'villages-layer');
+
+                    this.map.addLayer({
+                        id: `route-outline-${index}-layer`,
+                        type: "line",
+                        source: `route-outline-${index}`,
+                        layout: {
+                        "line-join": "round",
+                        "line-cap": "round",
+                        },
+                        paint: {
+                        "line-color": "#ffffff",
+                        "line-width": 5,
+                        "line-opacity": 1,
+                        },
+                    }, `route-${index}-layer`);
 
                     this.map.getSource(`route-${index}`).setData(routeData.routes[0].geometry)
+                    
+                    this.map.getSource(`route-outline-${index}`).setData(routeData.routes[0].geometry)
                     // console.log('map: ', routeData.routes[0].geometry)
+                    }
+
                 })
+                eventBus.$on('checkpointReached', (index) => this.map.setPaintProperty(
+                    `route-${index}-layer`,
+                    'line-opacity',
+                    0
+                ))
                 
 
             })

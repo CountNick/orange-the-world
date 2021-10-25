@@ -29,7 +29,7 @@
 
   <button v-if="location === null" class="locator-start__btn"
     v-on:click="startLocator"
-  >
+  > 
       Start route
   </button>
 
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-
+import { eventBus } from '../main'
 
   export default {
     name: 'Locator',
@@ -116,8 +116,10 @@
 
         
 
-        if(this.traveledDistance >= 1 || this.traveledDistance >= 2 || this.traveledDistance >= 3 || this.traveledDistance >= 4 || this.traveledDistance >= 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance >= 8 || this.traveledDistance >= 9) {
+        if(this.traveledDistance === 1 || this.traveledDistance === 2 || this.traveledDistance === 3 || this.traveledDistance === 4 || this.traveledDistance === 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance === 8 || this.traveledDistance === 9) {
+            
             this.$showMarker = this.$showMarker + 1
+            
             
         }
 
@@ -126,11 +128,14 @@
 
         if(this.currentVillage.id == this.$showMarker) {
             navigator.vibrate(200)
+            
+            
             this.currentVillage.style.visibility = 'visible'
             console.log('passed village: ', this.passedVillage)
 
             if(typeof this.passedVillage !== 'undefined') {
               this.passedVillage.style.visibility = 'hidden'
+              eventBus.$emit('checkpointReached', `${this.passedVillage.id}`)
             }
             
         } 
