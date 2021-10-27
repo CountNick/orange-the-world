@@ -92,6 +92,24 @@ export default {
 
                     }
                 });
+
+
+                this.createCustomMarker(
+                    json.features[0].geometry.coordinates,
+                    'span',
+                    `start`,
+                    json.features[0].properties.index,
+                    'material-icons'
+                )
+
+                this.createCustomMarker(
+                    json.features[json.features.length - 1].geometry.coordinates,
+                    'div',
+                    `sports_score`,
+                    json.features[json.features.length - 1].properties.index,
+                    'material-icons'
+                )
+                
                 // console.log("place data: ", this.place_data)
                 
 
@@ -115,19 +133,14 @@ export default {
                 })
 
                 this.map.getSource('villages')._options.data.features.map(village => {
-                    console.log(village)
 
-                    const diffLong = village.geometry.coordinates[0] + 0.00014974447299209714;
-                    const diffLat = village.geometry.coordinates[1] + 0.2928258217985239753;
-
-                    const label = document.createElement('div')
-                    label.textContent = `You just entered ${village.properties.place_name}`
-                    label.id = village.properties.index
-                    label.className = 'village-marker'
-
-                    new mapboxgl.Marker(label)
-                        .setLngLat([diffLong, diffLat])
-                        .addTo(this.map);
+                    this.createCustomMarker(
+                        village.geometry.coordinates,
+                        'div',
+                        `You just entered ${village.properties.place_name}`,
+                        village.properties.index,
+                        'village-marker'
+                    )
                 })
         
                 const pairedData = json.features.reduce((result, value, index, array) => {
@@ -171,7 +184,7 @@ export default {
                         paint: {
                         "line-color": "#ea5705",
                         "line-width": 4,
-                        "line-opacity": 1,
+                        "line-opacity": 0,
                         },
                     }, 'villages-layer');
 
@@ -186,17 +199,32 @@ export default {
                         paint: {
                         "line-color": "#ffffff",
                         "line-width": 5,
-                        "line-opacity": 1,
+                        "line-opacity": 0,
                         },
                     }, `route-${index}-layer`);
 
                     this.map.getSource(`route-${index}`).setData(routeData.routes[0].geometry)
                     
                     this.map.getSource(`route-outline-${index}`).setData(routeData.routes[0].geometry)
+
+                    eventBus.$on('showRoute', (opacity) => {
+                        this.map.setPaintProperty(
+                            `route-${index}-layer`,
+                            'line-opacity',
+                            opacity
+                        )
+
+                        this.map.setPaintProperty(
+                            `route-outline-${index}-layer`,
+                            'line-opacity',
+                            opacity
+                        )
+                    })
                     // console.log('map: ', routeData.routes[0].geometry)
                     }
 
                 })
+                
                 eventBus.$on('checkpointReached', (index) => this.map.setPaintProperty(
                     `route-${index}-layer`,
                     'line-opacity',
@@ -220,6 +248,25 @@ export default {
           const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/walking/${startCoords[0]},${startCoords[1]};${endCoords[0]},${endCoords[1]}?geometries=geojson&access_token=${this.access_token}`)
           // return data in json format
           return await response.json()
+      },
+      createCustomMarker(coordinates, elementType, text, id, className) {
+
+        const diffLong = coordinates[0] + 0.00014974447299209714;
+        const diffLat = coordinates[1] + 0.2928258217985239753;
+
+        const element = document.createElement(elementType)
+        
+        if(text){
+            element.textContent = text
+        }
+        
+        element.id = id
+        element.className = className
+
+        return new mapboxgl.Marker(element)
+                        .setLngLat([diffLong, diffLat])
+                        .addTo(this.map);
+
       }
   }
 };
@@ -229,6 +276,10 @@ export default {
 
     .map-view, main, .map-holder, #map {
         height: 100%;
+    }
+
+    .mapboxgl-control-container {
+        display: none;
     }
 
     // #map {

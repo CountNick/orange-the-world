@@ -7,20 +7,27 @@
     occurred: {{errorStr}}
   </div>
   
-  <div v-if="gettingLocation">
-    <i>Getting your location...</i>
+  <div class="getting__location" v-if="gettingLocation">
+    <i>Getting location...</i>
   </div>
   
-  <div v-if="startLocation">
+  <!-- <div v-if="startLocation">
     Your start location data is {{ startLocation.coords.latitude }}, {{ startLocation.coords.longitude}}
   </div>
   
   <div v-if="location">
     Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
-  </div>
+  </div> -->
 
   <div v-if="location">
-    Traveled distance: {{ traveledDistance }} KM
+    <div class="distance__container">
+      <span class="material-icons">
+        directions_walk
+      </span>
+      <div>
+        {{ traveledDistance }} KM
+      </div>
+    </div>
   </div>
 
   <div class="btn__container">
@@ -30,16 +37,20 @@
   <button v-if="location === null" class="locator-start__btn"
     v-on:click="startLocator"
   > 
-      Start route
+      Start
   </button>
 
     <button v-if="location" class="locator-start__btn"
     v-on:click="functionIsRunning = false; stopRoute()"
   >
-      Stop route
+      Stop
   </button>
 
-  <router-link class="locator-help__btn" to="/explanation" tag="button">Help</router-link>
+  <router-link class="locator-help__btn" to="/explanation" tag="button">
+    <span class="material-icons">
+      help
+    </span>
+  </router-link>
 
   </div>
 
@@ -97,6 +108,7 @@ import { eventBus } from '../main'
             this.gettingLocation = false;
             this.startLocation = pos;
             this.location = pos;
+            eventBus.$emit('showRoute', 1)
         }, err => {
             this.gettingLocation = false
             this.errorStr = err.message
@@ -161,6 +173,7 @@ import { eventBus } from '../main'
 
         },
         stopRoute() {
+            eventBus.$emit('showRoute', 0)
             this.startLocation = null
             this.location = null
             this.traveledDistance = null
@@ -193,7 +206,6 @@ import { eventBus } from '../main'
         color: #ea5705;
         bottom: 0;
         width: 100%;
-        background: black;
     }
 
     button {
@@ -207,6 +219,34 @@ import { eventBus } from '../main'
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding: 1em 1em;
+
+      .locator-help__btn {
+        background: #fff;
+        color: #000;
+        border-radius: 50%;
+      }
+
+    }
+
+    .getting__location {
+      font-size: 2em;
+      padding: .5em;
+    }
+
+    .distance__container {
+      font-size: 2em;
+      padding: .5em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+
+      .material-icons {
+        font-size: unset;
+      }
+
     }
 
 </style>

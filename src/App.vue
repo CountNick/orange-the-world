@@ -50,7 +50,7 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 50px;
+  padding: 0px 3em;
   background: rgba(1, 1, 1, 0.5);
   position: fixed;
   z-index: 2;
