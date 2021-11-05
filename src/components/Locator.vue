@@ -77,7 +77,8 @@ import { eventBus } from '../main'
             passedLocations: [],
             watchId: null,
             currentVillage: null,
-            passedVillage: null
+            passedVillage: null,
+            startedWatching: false
         }
     },
     created() {
@@ -104,27 +105,39 @@ import { eventBus } from '../main'
    
         this.gettingLocation = true;
         // get position
-        navigator.geolocation.getCurrentPosition(pos => {
-            this.gettingLocation = false;
-            this.startLocation = pos;
-            this.location = pos;
-            eventBus.$emit('showRoute', 1)
-        }, err => {
-            this.gettingLocation = false
-            this.errorStr = err.message
-        })
+        // navigator.geolocation.getCurrentPosition(pos => {
+        //     this.gettingLocation = false;
+        //     this.startLocation = pos;
+        //     this.location = pos;
+        //     eventBus.$emit('showRoute', 1)
+        // }, err => {
+        //     this.gettingLocation = false
+        //     this.errorStr = err.message
+        // })
 
         this.watchId = navigator.geolocation.watchPosition((position) => {
         
+        if(this.startedWatching === false){
+          this.startedWatching = true
+          this.gettingLocation = false;
+          this.startLocation = position;
+          this.location = position;
+          eventBus.$emit('showRoute', 1)
+
+        }
+        console.log('position: ', position)
         
         this.location = position
 
-        this.passedLocations.push(this.location)
+        this.passedLocations.push([this.location.coords.latitude, this.location.coords.longitude])
         // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
-        
+        console.log('array: ', this.passedLocations)
+        window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
         const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
         
         this.traveledDistance = Math.round(unformattedDistance *100) / 100
+
+        console.log(this.traveledDistance)
 
         
 
@@ -134,6 +147,9 @@ import { eventBus } from '../main'
             
             
         }
+
+        console.log('travelled distance: ', this.traveledDistance)
+        console.log('show marker: ', this.$showMarker)
 
         this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
         this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
@@ -153,7 +169,17 @@ import { eventBus } from '../main'
         } 
         
 
-        });
+        }, (err) => {
+          this.gettingLocation = false;
+          this.errorStr = err.message;
+          console.warn('ERROR(' + err.code + '): ' + err.message);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        }
+        );
 
         
         if(!this.functionIsRunning) return
@@ -174,6 +200,7 @@ import { eventBus } from '../main'
         },
         stopRoute() {
             eventBus.$emit('showRoute', 0)
+            this.startedWatching = false
             this.startLocation = null
             this.location = null
             this.traveledDistance = null

@@ -4,7 +4,7 @@
     <div>
       <nav>
         <div class="header">
-          <h3 class="header__title">Orange the world</h3>
+          <h3 class="header__title">Orange Challenge</h3>
           <router-link to="/">
           <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
           </router-link>
@@ -50,15 +50,16 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 3em;
   background: rgba(1, 1, 1, 0.5);
   position: fixed;
   z-index: 2;
+  width: 100%;
+  justify-content: center;
+  height: 4rem;
 }
 .header h3 {
-    text-align: center;
+    font-size: .8em;
     color: #fff;
-    /* font-size: 40px; */
     text-shadow: 2px 2px 8px #ea5705;
     font-weight: 600;
     letter-spacing: 8px;
@@ -66,7 +67,7 @@ nav {
 }
 
 .header a {
-  width: 30%;
+  width: 2rem;
 }
 
 .header__img {
@@ -75,9 +76,11 @@ nav {
 
 @media only screen and (min-width: 750px) {
 
-  .header__img {
-  width: 5%;
+  .header h3 {
+    font-size: 1em;
 }
+
+
 
 }
 

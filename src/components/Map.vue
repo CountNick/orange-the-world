@@ -58,6 +58,9 @@ export default {
                   container: 'map',
                   style: 'mapbox://styles/mapbox/dark-v10',
                   center: this.center,
+                  draggable: false,
+                  interactive: false,
+                  scrollZoom: false,
                   zoom: 6
               });
         } catch(err) {
