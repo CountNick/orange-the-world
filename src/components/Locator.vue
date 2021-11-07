@@ -207,6 +207,7 @@ import { eventBus } from '../main'
         },
         stopRoute() {
             eventBus.$emit('showRoute', 0)
+            this.passedLocations = []
             this.startedWatching = false
             this.startLocation = null
             this.location = null
@@ -234,10 +235,10 @@ import { eventBus } from '../main'
 
               const arraysAreEqual = this.arrayEquals(this.passedLocations[this.passedLocations.length-1], this.passedLocations[this.passedLocations.length-2])
 
-              console.log('arrays are equal: ', arraysAreEqual)
+              console.log('array: ', this.passedLocations.length)
 
 
-              if(!arraysAreEqual) {
+              if(!arraysAreEqual && this.passedLocations.length > 1) {
                 // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
                 const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
           
@@ -283,7 +284,9 @@ import { eventBus } from '../main'
 
               if(this.traveledDistance >= 9 && this.traveledDistance <= 10) {
                 this.$showMarker = this.$showMarker = 9
+                clearInterval(this.watchId)
               }
+              
 
               console.log('travelled distance: ', this.traveledDistance)
               console.log('show marker: ', this.$showMarker)
