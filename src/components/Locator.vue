@@ -71,7 +71,7 @@ import { eventBus } from '../main'
             gettingLocation: false,
             errorStr: null,
             startLocation: null,
-            traveledDistance: null,
+            traveledDistance: 0,
             // stopWatching: false
             functionIsRunning: false,
             passedLocations: [],
@@ -97,7 +97,7 @@ import { eventBus } from '../main'
 
     },
     methods: {
-        startLocator() {
+        async startLocator() {
     
         if(!this.functionIsRunning) {
             this.functionIsRunning = true
@@ -105,81 +105,88 @@ import { eventBus } from '../main'
    
         this.gettingLocation = true;
         // get position
-        // navigator.geolocation.getCurrentPosition(pos => {
-        //     this.gettingLocation = false;
-        //     this.startLocation = pos;
-        //     this.location = pos;
-        //     eventBus.$emit('showRoute', 1)
-        // }, err => {
-        //     this.gettingLocation = false
-        //     this.errorStr = err.message
-        // })
+        navigator.geolocation.getCurrentPosition(pos => {
+            this.gettingLocation = false;
+            this.startLocation = pos;
+            this.location = pos;
+            eventBus.$emit('showRoute', 1)
+        }, err => {
+            this.gettingLocation = false
+            this.errorStr = err.message
+        })
 
-        this.watchId = navigator.geolocation.watchPosition((position) => {
+        this.updateLocation()
+
+        // this.watchId = navigator.geolocation.watchPosition((position) => {
         
-        if(this.startedWatching === false){
-          this.startedWatching = true
-          this.gettingLocation = false;
-          this.startLocation = position;
-          this.location = position;
-          eventBus.$emit('showRoute', 1)
+        // if(this.startedWatching === false){
+        //   this.startedWatching = true
+        //   this.gettingLocation = false;
+        //   this.startLocation = position;
+        //   this.location = position;
+        //   eventBus.$emit('showRoute', 1)
 
-        }
-        console.log('position: ', position)
+        // }
+        // console.log('position: ', position)
         
-        this.location = position
+        // this.location = position
 
-        this.passedLocations.push([this.location.coords.latitude, this.location.coords.longitude])
-        // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
-        console.log('array: ', this.passedLocations)
-        window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
-        const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+        // this.passedLocations.push([this.location.coords.latitude, this.location.coords.longitude])
+        // // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
+        // console.log('array: ', this.passedLocations)
+        // console.log('array set: ', [...new Set(this.passedLocations)])
+        // // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
+        // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
         
-        this.traveledDistance = Math.round(unformattedDistance *100) / 100
+        // this.traveledDistance = Math.round(unformattedDistance *100) / 100
 
-        console.log(this.traveledDistance)
+        // console.log(this.traveledDistance)
 
-        
-
-        if(this.traveledDistance === 1 || this.traveledDistance === 2 || this.traveledDistance === 3 || this.traveledDistance === 4 || this.traveledDistance === 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance === 8 || this.traveledDistance === 9) {
-            
-            this.$showMarker = this.$showMarker + 1
-            
-            
-        }
-
-        console.log('travelled distance: ', this.traveledDistance)
-        console.log('show marker: ', this.$showMarker)
-
-        this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
-        this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
-
-        if(this.currentVillage.id == this.$showMarker) {
-            navigator.vibrate(200)
-            
-            
-            this.currentVillage.style.visibility = 'visible'
-            console.log('passed village: ', this.passedVillage)
-
-            if(typeof this.passedVillage !== 'undefined') {
-              this.passedVillage.style.visibility = 'hidden'
-              eventBus.$emit('checkpointReached', `${this.passedVillage.id}`)
-            }
-            
-        } 
         
 
-        }, (err) => {
-          this.gettingLocation = false;
-          this.errorStr = err.message;
-          console.warn('ERROR(' + err.code + '): ' + err.message);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
-        }
-        );
+        // if(this.traveledDistance === 1 || this.traveledDistance === 2 || this.traveledDistance === 3 || this.traveledDistance === 4 || this.traveledDistance === 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance === 8 || this.traveledDistance === 9) {
+            
+        //     this.$showMarker = this.$showMarker + 1
+            
+            
+        // }
+
+        // console.log('travelled distance: ', this.traveledDistance)
+        // console.log('show marker: ', this.$showMarker)
+
+        // this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+        // this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
+
+        // if(this.currentVillage.id == this.$showMarker) {
+        //     navigator.vibrate(200)
+            
+            
+        //     this.currentVillage.style.visibility = 'visible'
+        //     console.log('passed village: ', this.passedVillage)
+
+        //     if(typeof this.passedVillage !== 'undefined') {
+        //       this.passedVillage.style.visibility = 'hidden'
+        //       eventBus.$emit('checkpointReached', `${this.passedVillage.id}`)
+        //     }
+            
+        // } 
+        
+
+        // }, (err) => {
+        //   this.gettingLocation = false;
+        //   this.errorStr = err.message;
+        //   console.warn('ERROR(' + err.code + '): ' + err.message);
+        // },
+        // {
+        //   timeout: 5000
+        // }
+        // );
+
+        this.watchId = setInterval(() => {
+          this.updateLocation()
+        }, 5000);
+
+
 
         
         if(!this.functionIsRunning) return
@@ -203,9 +210,10 @@ import { eventBus } from '../main'
             this.startedWatching = false
             this.startLocation = null
             this.location = null
-            this.traveledDistance = null
+            this.traveledDistance = 0
             // this.stopWatching = true
             this.$showMarker = 0
+            console.log('current village in stopoute: ', this.currentVillage)
             this.currentVillage.style.visibility = 'hidden'
             if(typeof this.passedVillage !== 'undefined') {
               this.passedVillage = null
@@ -213,11 +221,93 @@ import { eventBus } from '../main'
             
             this.currentVillage = null
 
-            navigator.geolocation.clearWatch(this.watchId)
+            clearInterval(this.watchId)
             
         },
-        checkId() {
+        updateLocation() {
+            navigator.geolocation.getCurrentPosition(pos => {
+              
+              this.location = pos
 
+              this.passedLocations.push([this.location.coords.latitude, this.location.coords.longitude])
+              // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
+
+              const arraysAreEqual = this.arrayEquals(this.passedLocations[this.passedLocations.length-1], this.passedLocations[this.passedLocations.length-2])
+
+              console.log('arrays are equal: ', arraysAreEqual)
+
+
+              if(!arraysAreEqual) {
+                // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
+                const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+          
+                this.traveledDistance = Math.round(unformattedDistance *100) / 100
+
+                console.log(this.traveledDistance)
+              }
+              
+        
+              if(this.traveledDistance >= 1 && this.traveledDistance <= 2) {
+            
+                this.$showMarker = this.$showMarker = 1
+          
+              } 
+              
+              if(this.traveledDistance >= 2 && this.traveledDistance <= 3) {
+                this.$showMarker = this.$showMarker = 2
+              }
+
+              if(this.traveledDistance >= 3 && this.traveledDistance <= 4) {
+                this.$showMarker = this.$showMarker = 3
+              }
+
+              if(this.traveledDistance >= 4 && this.traveledDistance <= 5) {
+                this.$showMarker = this.$showMarker = 4
+              }
+
+              if(this.traveledDistance >= 5 && this.traveledDistance <= 6) {
+                this.$showMarker = this.$showMarker = 5
+              }
+
+              if(this.traveledDistance >= 6 && this.traveledDistance <= 7) {
+                this.$showMarker = this.$showMarker = 6
+              }
+
+              if(this.traveledDistance >= 7 && this.traveledDistance <= 8) {
+                this.$showMarker = this.$showMarker = 7
+              }
+
+              if(this.traveledDistance >= 8 && this.traveledDistance <= 9) {
+                this.$showMarker = this.$showMarker = 8
+              }
+
+              if(this.traveledDistance >= 9 && this.traveledDistance <= 10) {
+                this.$showMarker = this.$showMarker = 9
+              }
+
+              console.log('travelled distance: ', this.traveledDistance)
+              console.log('show marker: ', this.$showMarker)
+
+              this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
+              this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
+
+              if(this.currentVillage.id == this.$showMarker) {
+                // navigator.vibrate(200)
+            
+            
+                this.currentVillage.style.visibility = 'visible'
+                console.log('passed village: ', this.passedVillage)
+
+                if(typeof this.passedVillage !== 'undefined') {
+                  this.passedVillage.style.visibility = 'hidden'
+                  eventBus.$emit('checkpointReached', `${this.passedVillage.id}`)
+                }
+            
+        } 
+            })
+        },
+        arrayEquals(a, b) {
+          return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
         }
     }
   };
