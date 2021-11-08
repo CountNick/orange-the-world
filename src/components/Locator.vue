@@ -37,13 +37,13 @@
   <button v-if="location === null" class="locator-start__btn"
     v-on:click="startLocator"
   > 
-      Start
+      Start challenge
   </button>
 
     <button v-if="location" class="locator-start__btn"
     v-on:click="functionIsRunning = false; stopRoute()"
   >
-      Stop
+      Stop challenge
   </button>
 
   <router-link class="locator-help__btn" to="/explanation" tag="button">
@@ -340,6 +340,11 @@ import { eventBus } from '../main'
       flex-direction: row;
       justify-content: space-between;
       padding: 1em 1em;
+
+      .locator-start__btn {
+        border-radius: .5em;
+        font-weight: 700;
+      }
 
       .locator-help__btn {
         background: #fff;

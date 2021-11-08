@@ -321,10 +321,10 @@ export default {
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 10px -10px #aef4af;
+    box-shadow: 0 0 10px -10px #ea5705;
   }
   to {
-    box-shadow: 0 0 10px 10px #aef4af;
+    box-shadow: 0 0 10px 10px #ea5705;
   }
 }
 
