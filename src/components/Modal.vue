@@ -13,7 +13,9 @@
                 class="btn-close"
                 @click="$router.back()"
                 >
-                x
+                <span class="material-icons">
+                close
+                </span>
                 </button>
             </header>
 
