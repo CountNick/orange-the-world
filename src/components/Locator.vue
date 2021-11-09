@@ -11,13 +11,13 @@
     <i>Getting location...</i>
   </div>
   
-  <!-- <div v-if="startLocation">
+  <div v-if="startLocation">
     Your start location data is {{ startLocation.coords.latitude }}, {{ startLocation.coords.longitude}}
   </div>
   
   <div v-if="location">
     Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
-  </div> -->
+  </div>
   <transition name="page-fade">
   <div v-if="location">
     <div class="distance__container">
