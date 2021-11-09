@@ -73,6 +73,7 @@ export default {
                 // if(this.mapLoaded === true) {
                     setTimeout(() => {
                         this.map.resize()
+                        this.$map.loaded = true
                     }, 1);
                 // }
 
@@ -97,21 +98,21 @@ export default {
                 });
 
 
-                this.createCustomMarker(
-                    json.features[0].geometry.coordinates,
-                    'span',
-                    `start`,
-                    json.features[0].properties.index,
-                    'material-icons'
-                )
+                // this.createCustomMarker(
+                //     json.features[0].geometry.coordinates,
+                //     'span',
+                //     `start`,
+                //     json.features[0].properties.index,
+                //     'material-icons'
+                // )
 
-                this.createCustomMarker(
-                    json.features[json.features.length - 1].geometry.coordinates,
-                    'div',
-                    `sports_score`,
-                    json.features[json.features.length - 1].properties.index,
-                    'material-icons'
-                )
+                // this.createCustomMarker(
+                //     json.features[json.features.length - 1].geometry.coordinates,
+                //     'div',
+                //     `sports_score`,
+                //     json.features[json.features.length - 1].properties.index,
+                //     'material-icons'
+                // )
                 
                 // console.log("place data: ", this.place_data)
                 

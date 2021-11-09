@@ -18,7 +18,7 @@
   <div v-if="location">
     Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
   </div> -->
-
+  <transition name="page-fade">
   <div v-if="location">
     <div class="distance__container">
       <span class="material-icons">
@@ -29,30 +29,30 @@
       </div>
     </div>
   </div>
+  </transition>
+  <transition name="page-fade">
+    <div v-if="$map.loaded" class="btn__container">
 
-  <div class="btn__container">
+    <button v-if="location === null" class="locator-start__btn"
+      v-on:click="startLocator"
+    > 
+        Start challenge
+    </button>
 
-  
+      <button v-if="location" class="locator-start__btn"
+      v-on:click="functionIsRunning = false; stopRoute()"
+    >
+        Stop challenge
+    </button>
 
-  <button v-if="location === null" class="locator-start__btn"
-    v-on:click="startLocator"
-  > 
-      Start challenge
-  </button>
+    <router-link class="locator-help__btn" to="/explanation" tag="button">
+      <span class="material-icons">
+        help
+      </span>
+    </router-link>
 
-    <button v-if="location" class="locator-start__btn"
-    v-on:click="functionIsRunning = false; stopRoute()"
-  >
-      Stop challenge
-  </button>
-
-  <router-link class="locator-help__btn" to="/explanation" tag="button">
-    <span class="material-icons">
-      help
-    </span>
-  </router-link>
-
-  </div>
+    </div>
+  </transition>
 
 
   
@@ -78,11 +78,11 @@ import { eventBus } from '../main'
             watchId: null,
             currentVillage: null,
             passedVillage: null,
-            startedWatching: false
+            startedWatching: false,
         }
     },
     created() {
-        // do we support geolocation
+        
 
         /** Converts numeric degrees to radians */
         if (typeof(Number.prototype.toRad) === "undefined") {
@@ -90,7 +90,7 @@ import { eventBus } from '../main'
             return this * Math.PI / 180;
         }
         }
-
+        // do we support geolocation
         if(!('geolocation' in navigator)) {
             this.errorStr = 'Geolocation is not available.';
         }
@@ -117,78 +117,11 @@ import { eventBus } from '../main'
 
         this.updateLocation()
 
-        // this.watchId = navigator.geolocation.watchPosition((position) => {
-        
-        // if(this.startedWatching === false){
-        //   this.startedWatching = true
-        //   this.gettingLocation = false;
-        //   this.startLocation = position;
-        //   this.location = position;
-        //   eventBus.$emit('showRoute', 1)
-
-        // }
-        // console.log('position: ', position)
-        
-        // this.location = position
-
-        // this.passedLocations.push([this.location.coords.latitude, this.location.coords.longitude])
-        // // const lastPassedLocation = this.passedLocations[this.passedLocations.length - 1]
-        // console.log('array: ', this.passedLocations)
-        // console.log('array set: ', [...new Set(this.passedLocations)])
-        // // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
-        // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
-        
-        // this.traveledDistance = Math.round(unformattedDistance *100) / 100
-
-        // console.log(this.traveledDistance)
-
-        
-
-        // if(this.traveledDistance === 1 || this.traveledDistance === 2 || this.traveledDistance === 3 || this.traveledDistance === 4 || this.traveledDistance === 5 ||this.traveledDistance >= 6 || this.traveledDistance >= 7 || this.traveledDistance === 8 || this.traveledDistance === 9) {
-            
-        //     this.$showMarker = this.$showMarker + 1
-            
-            
-        // }
-
-        // console.log('travelled distance: ', this.traveledDistance)
-        // console.log('show marker: ', this.$showMarker)
-
-        // this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
-        // this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
-
-        // if(this.currentVillage.id == this.$showMarker) {
-        //     navigator.vibrate(200)
-            
-            
-        //     this.currentVillage.style.visibility = 'visible'
-        //     console.log('passed village: ', this.passedVillage)
-
-        //     if(typeof this.passedVillage !== 'undefined') {
-        //       this.passedVillage.style.visibility = 'hidden'
-        //       eventBus.$emit('checkpointReached', `${this.passedVillage.id}`)
-        //     }
-            
-        // } 
-        
-
-        // }, (err) => {
-        //   this.gettingLocation = false;
-        //   this.errorStr = err.message;
-        //   console.warn('ERROR(' + err.code + '): ' + err.message);
-        // },
-        // {
-        //   timeout: 5000
-        // }
-        // );
-
         this.watchId = setInterval(() => {
           this.updateLocation()
-        }, 5000);
+        }, 2000);
 
 
-
-        
         if(!this.functionIsRunning) return
             
         },
@@ -235,12 +168,16 @@ import { eventBus } from '../main'
 
               const arraysAreEqual = this.arrayEquals(this.passedLocations[this.passedLocations.length-1], this.passedLocations[this.passedLocations.length-2])
 
-              console.log('array: ', this.passedLocations.length)
+              console.log('array: ', this.passedLocations[this.passedLocations.length-2])
 
 
               if(!arraysAreEqual && this.passedLocations.length > 1) {
                 // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
-                const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+                console.log('traveld Distance init: ', this.traveledDistance)
+                console.log('passedLocations: ', this.passedLocations)
+                // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
+
+                const unformattedDistance = this.traveledDistance + this.calculateDistance(this.passedLocations[this.passedLocations.length-2][0], this.passedLocations[this.passedLocations.length-2][1], this.location.coords.latitude, this.location.coords.longitude)
           
                 this.traveledDistance = Math.round(unformattedDistance *100) / 100
 
