@@ -29,8 +29,9 @@
     <img class="carousel__img" src="https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG" alt="">
   </slide>
 </carousel>
-
+                <p class="modal__information">
                 {{ information }}
+                </p>
                 </slot>
             </section>
 

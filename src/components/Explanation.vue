@@ -8,8 +8,15 @@
         </router-link>
         
         <article>
+
+            <h3>Location data</h3>
             <p>
-                Welcome to the Orange the World Challenge. Press the start route button and start walking to track the amount of kilometers you've walked. With each kilometer you walk you'll enter a new village in Sierra Leone. Villages will be highlighted when you arrive in them, when clicking on one you'll get more information about what Hindolo does in this village.
+                Welcome to the Orange the World Challenge! In order fot his application to work you'll need to enable location services for this application. When pressing the "Start challenge" button the browser will ask for permission to use your location, if you deny access you won't be able to keep track of the distance you've walked. The location data is not being saved for privacy reasons. If you accidentally did not allow the application to use location data but still want to make use of this feature it's possible to empty your browser's cache and reload the page.
+            </p>
+            
+            <h3>I don't want you to use my location</h3>
+            <p>
+            if you deny access your location won't be tracked and you won't be able to see how far you've walked but you'll still be able to click the points on the map for more information.
             </p>
         </article>
 
@@ -29,7 +36,7 @@ export default {
 .explanation__container {
     z-index: 5;
     position: fixed;
-    top: 20%;
+    top: 5%;
     background: #fff;
     margin: 1rem 2rem;
     padding: 1rem 2rem;
