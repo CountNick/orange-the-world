@@ -7,7 +7,7 @@
             </span>
         </router-link>
         
-        <article>
+        <article class="explanation__text">
 
             <h3>Location data</h3>
             <p>
@@ -36,21 +36,28 @@ export default {
 .explanation__container {
     z-index: 5;
     position: fixed;
-    top: 5%;
+    // top: 5%;
     background: #fff;
     margin: 1rem 2rem;
     padding: 1rem 2rem;
     box-shadow: 2px 2px 20px 1px;
+    height: 80vh;
+
+    .close__btn {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .explanation__text {
+        overflow-y: scroll;
+    }
 }
 
-.close__btn {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-end;
-}
+
 
 </style>
