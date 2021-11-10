@@ -137,14 +137,27 @@ export default {
                 })
 
                 this.map.getSource('villages')._options.data.features.map(village => {
+                    
+                    if(village.properties.index === 0) {
+                        this.createCustomMarker(
+                            village.geometry.coordinates,
+                            'div',
+                            `We're starting the walk in ${village.properties.place_name}`,
+                            village.properties.index,
+                            'village-marker'
+                        )
+                    } else {
 
-                    this.createCustomMarker(
-                        village.geometry.coordinates,
-                        'div',
-                        `You just entered ${village.properties.place_name}`,
-                        village.properties.index,
-                        'village-marker'
-                    )
+                        this.createCustomMarker(
+                            village.geometry.coordinates,
+                            'div',
+                            `You just entered ${village.properties.place_name}`,
+                            village.properties.index,
+                            'village-marker'
+                        )
+                    }
+
+                    
                 })
         
                 const pairedData = json.features.reduce((result, value, index, array) => {
