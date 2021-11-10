@@ -36,7 +36,7 @@ export default {
 .explanation__container {
     z-index: 5;
     position: fixed;
-    // top: 5%;
+    top: 0;
     background: #fff;
     margin: 1rem 2rem;
     padding: 1rem 2rem;
