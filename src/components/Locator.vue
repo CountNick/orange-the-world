@@ -69,6 +69,7 @@ import { eventBus } from '../main'
         return {
             location: null,
             gettingLocation: false,
+            accumulatedDistance: 0,
             errorStr: null,
             startLocation: null,
             traveledDistance: 0,
@@ -177,9 +178,15 @@ import { eventBus } from '../main'
                 console.log('passedLocations: ', this.passedLocations)
                 // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
 
-                const unformattedDistance = this.traveledDistance + this.calculateDistance(this.passedLocations[this.passedLocations.length-2][0], this.passedLocations[this.passedLocations.length-2][1], this.location.coords.latitude, this.location.coords.longitude)
+                // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.passedLocations[this.passedLocations.length-2][0], this.passedLocations[this.passedLocations.length-2][1], this.location.coords.latitude, this.location.coords.longitude)
+
+                const delta = this.calculateDelta(this.passedLocations)
+                this.accumulatedDistance += delta
+
+                console.log('accumulated distance: ', this.accumulatedDistance)
           
-                this.traveledDistance = Math.round(unformattedDistance *100) / 100
+                // this.traveledDistance = Math.round(unformattedDistance *100) / 100;
+                this.traveledDistance = (this.round(this.accumulatedDistance, 3)).toLocaleString('en-US', { minimumFractionDigits: 3 })
 
                 console.log(this.traveledDistance)
               }
@@ -248,6 +255,40 @@ import { eventBus } from '../main'
         },
         arrayEquals(a, b) {
           return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
+        },
+        round(num, places) {
+          return +(parseFloat(num).toFixed(places));
+        },
+        calculateDelta(track) {
+          if(track.length >= 3) {
+            const newIndex = track.length - 1;
+            const newLatLng = track[newIndex];
+            const lastLatLng = track[newIndex - 1];
+            const latitude = 0;
+            const longitude = 1;
+            return this.distance(newLatLng[latitude], newLatLng[longitude], lastLatLng[latitude], lastLatLng[longitude], 'K');
+          }
+        },
+        distance(lat1, lon1, lat2, lon2, unit) {
+          if ((lat1 == lat2) && (lon1 == lon2)) {
+            return 0;
+          }
+          else {
+            var radlat1 = Math.PI * lat1/180;
+            var radlat2 = Math.PI * lat2/180;
+            var theta = lon1-lon2;
+            var radtheta = Math.PI * theta/180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+              dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180/Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit=="K") { dist = dist * 1.609344 }
+            if (unit=="N") { dist = dist * 0.8684 }
+            return dist;
+          }
         }
     }
   };
