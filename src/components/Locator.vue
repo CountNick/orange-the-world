@@ -232,8 +232,6 @@ import { eventBus } from '../main'
             }, (err) => {
               this.gettingLocation = false
               this.errorStr = err.message
-            }, {
-              enableHighAccuracy: true
             })
         },
         arrayEquals(a, b) {
