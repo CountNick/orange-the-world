@@ -84,13 +84,6 @@ import { eventBus } from '../main'
     },
     created() {
         
-
-        /** Converts numeric degrees to radians */
-        if (typeof(Number.prototype.toRad) === "undefined") {
-        Number.prototype.toRad = function() {
-            return this * Math.PI / 180;
-        }
-        }
         // do we support geolocation
         if(!('geolocation' in navigator)) {
             this.errorStr = 'Geolocation is not available.';
@@ -126,19 +119,6 @@ import { eventBus } from '../main'
         if(!this.functionIsRunning) return
             
         },
-        calculateDistance(lat1, long1, lat2, long2) {
-            const R = 6371;
-            const dLat = (lat2 - lat1).toRad();
-            const dLon = (long2 - long1).toRad();
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                    Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
-                    Math.sin(dLon / 2) * Math.sin(dLon / 2); 
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
-            const d = R * c;
-
-            return d
-
-        },
         stopRoute() {
             eventBus.$emit('showRoute', 0)
             this.passedLocations = []
@@ -146,6 +126,7 @@ import { eventBus } from '../main'
             this.startLocation = null
             this.location = null
             this.traveledDistance = 0
+            this.accumulatedDistance = 0
             // this.stopWatching = true
             this.$showMarker = 0
             console.log('current village in stopoute: ', this.currentVillage)
@@ -176,10 +157,7 @@ import { eventBus } from '../main'
                 // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
                 console.log('traveld Distance init: ', this.traveledDistance)
                 console.log('passedLocations: ', this.passedLocations)
-                // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.startLocation.coords.latitude, this.startLocation.coords.longitude, this.location.coords.latitude, this.location.coords.longitude)
-
-                // const unformattedDistance = this.traveledDistance + this.calculateDistance(this.passedLocations[this.passedLocations.length-2][0], this.passedLocations[this.passedLocations.length-2][1], this.location.coords.latitude, this.location.coords.longitude)
-
+                
                 const delta = this.calculateDelta(this.passedLocations)
                 this.accumulatedDistance += delta
 
