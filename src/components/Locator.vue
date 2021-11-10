@@ -72,7 +72,7 @@ import { eventBus } from '../main'
             accumulatedDistance: 0,
             errorStr: null,
             startLocation: null,
-            traveledDistance: 0,
+            traveledDistance: 0.00,
             // stopWatching: false
             functionIsRunning: false,
             passedLocations: [],
@@ -251,6 +251,11 @@ import { eventBus } from '../main'
                 }
             
         } 
+            }, (err) => {
+              this.gettingLocation = false
+              this.errorStr = err.message
+            }, {
+              enableHighAccuracy: true
             })
         },
         arrayEquals(a, b) {
