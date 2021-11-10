@@ -55,6 +55,7 @@ export default {
 
     .explanation__text {
         overflow-y: scroll;
+        height: 90%;
     }
 }
 
