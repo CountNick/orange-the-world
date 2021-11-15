@@ -34,7 +34,7 @@ export default {
         }, 1);
 
         const data = require('../assets/static-data.json')
-        console.log(data)
+        
 
         // const chosenLanguage = data.landingpage__content.find(lang => this.$language.chosen === lang.lang)
 
@@ -47,7 +47,7 @@ export default {
     methods: {
         changeLanguage(array, chosenLanguage) {
             const setLanguage = array.find(language => language.lang === chosenLanguage)
-            console.log(setLanguage)
+            
             this.content = setLanguage
         }
     }
