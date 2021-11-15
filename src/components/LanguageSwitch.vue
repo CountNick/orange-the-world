@@ -34,7 +34,6 @@ export default {
     },
     methods: {
         changeLanguage(event) {
-            console.log('change been clicked', event.target.id)
 
             this.$language.chosen = event.target.id
 

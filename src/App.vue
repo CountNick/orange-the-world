@@ -4,8 +4,9 @@
     <div>
       <nav>
         <div class="header">
-          <h3 class="header__title">Orange Challenge</h3>
           <router-link to="/" @click.native="hideLabels()">
+          <h3 class="header__title">Orange Challenge</h3>
+          
           <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
           </router-link>
           <language-switch/>
@@ -62,7 +63,7 @@ nav {
   position: fixed;
   z-index: 2;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   height: 4rem;
 }
 .header h3 {
@@ -75,11 +76,13 @@ nav {
 }
 
 .header a {
-  width: 2rem;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
 }
 
 .header__img {
-  width: 100%;
+  width: 2.5rem;
 }
 
 @media only screen and (min-width: 750px) {
