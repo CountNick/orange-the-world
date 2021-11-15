@@ -18,7 +18,7 @@ export default {
   },
   methods: {
         transitionLeave(el, done) {
-      console.log('transitionLeave');
+      
       done();
     },
   }

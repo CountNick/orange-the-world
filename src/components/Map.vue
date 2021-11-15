@@ -97,25 +97,6 @@ export default {
 
                     }
                 });
-
-
-                // this.createCustomMarker(
-                //     json.features[0].geometry.coordinates,
-                //     'span',
-                //     `start`,
-                //     json.features[0].properties.index,
-                //     'material-icons'
-                // )
-
-                // this.createCustomMarker(
-                //     json.features[json.features.length - 1].geometry.coordinates,
-                //     'div',
-                //     `sports_score`,
-                //     json.features[json.features.length - 1].properties.index,
-                //     'material-icons'
-                // )
-                
-                // console.log("place data: ", this.place_data)
                 
 
                 this.map.on('click', 'villages-layer', (e) => {
@@ -245,7 +226,7 @@ export default {
                             opacity
                         )
                     })
-                    // console.log('map: ', routeData.routes[0].geometry)
+                    
                     }
 
                 })
@@ -257,14 +238,13 @@ export default {
                 ))
                 
                 eventBus.$on('change language', (lang) => {
-                    console.log('changed language to: ', lang)
+                    
                     const villageMarkers = document.querySelectorAll('.village-marker')
                     console.log(villageMarkers)
                     Array.from(villageMarkers).filter(marker => {
                         const chosenTexts = Array.from(marker.children).filter(text => text.id === lang)
                         const otherTexts = Array.from(marker.children).filter(text => text.id !== lang)
-                        // console.log('found text: ', chosenTexts)
-                        // console.log('other text: ', otherTexts)
+                        
                         chosenTexts.forEach(text => text.classList.add('active'))
                         otherTexts.forEach(text => text.classList.remove('active'))
                         

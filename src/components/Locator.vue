@@ -129,7 +129,7 @@ import { eventBus } from '../main'
             this.accumulatedDistance = 0
             // this.stopWatching = true
             this.$showMarker = 0
-            console.log('current village in stopoute: ', this.currentVillage)
+            
             this.currentVillage.style.visibility = 'hidden'
             if(typeof this.passedVillage !== 'undefined') {
               this.passedVillage = null
