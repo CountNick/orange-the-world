@@ -5,7 +5,7 @@
       <nav>
         <div class="header">
           <h3 class="header__title">Orange Challenge</h3>
-          <router-link to="/">
+          <router-link to="/" @click.native="hideLabels()">
           <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
           </router-link>
           <language-switch/>
@@ -24,12 +24,18 @@
 <script>
 
 import  LanguageSwitch from '@/components/LanguageSwitch'
+import { eventBus } from './main'
 
 export default {
   name: "App",
   components: {
     LanguageSwitch
   },
+  methods: {
+    hideLabels() {
+      eventBus.$emit('hide-labels', 'hide')
+    }
+  }
 };
 </script>
 

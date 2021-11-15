@@ -115,6 +115,10 @@ import { eventBus } from '../main'
           this.updateLocation()
         }, 2000);
 
+        eventBus.$on('hide-labels', () => {
+          clearInterval(this.watchId)          
+        })
+
 
         if(!this.functionIsRunning) return
             
@@ -150,18 +154,17 @@ import { eventBus } from '../main'
 
               const arraysAreEqual = this.arrayEquals(this.passedLocations[this.passedLocations.length-1], this.passedLocations[this.passedLocations.length-2])
 
-              console.log('array: ', this.passedLocations[this.passedLocations.length-2])
+              
 
 
               if(!arraysAreEqual && this.passedLocations.length > 1) {
                 // window.localStorage.setItem('coordinates', JSON.stringify(this.passedLocations))
-                console.log('traveld Distance init: ', this.traveledDistance)
-                console.log('passedLocations: ', this.passedLocations)
+                
                 
                 const delta = this.calculateDelta(this.passedLocations)
                 this.accumulatedDistance += delta
 
-                console.log('accumulated distance: ', this.accumulatedDistance)
+                
           
                 // this.traveledDistance = Math.round(unformattedDistance *100) / 100;
                 this.traveledDistance = (this.round(this.accumulatedDistance, 3)).toLocaleString('en-US', { minimumFractionDigits: 3 })
@@ -210,8 +213,6 @@ import { eventBus } from '../main'
               }
               
 
-              console.log('travelled distance: ', this.traveledDistance)
-              console.log('show marker: ', this.$showMarker)
 
               this.currentVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker)
               this.passedVillage = Array.prototype.slice.call(document.querySelectorAll('.village-marker')).find(marker => marker.id == this.$showMarker-1)
@@ -221,7 +222,7 @@ import { eventBus } from '../main'
             
             
                 this.currentVillage.style.visibility = 'visible'
-                console.log('passed village: ', this.passedVillage)
+                
 
                 if(typeof this.passedVillage !== 'undefined') {
                   this.passedVillage.style.visibility = 'hidden'

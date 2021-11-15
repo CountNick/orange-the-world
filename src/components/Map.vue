@@ -236,11 +236,13 @@ export default {
                     'line-opacity',
                     0
                 ))
+
+                const villageMarkers = document.querySelectorAll('.village-marker')
                 
                 eventBus.$on('change language', (lang) => {
                     
-                    const villageMarkers = document.querySelectorAll('.village-marker')
-                    console.log(villageMarkers)
+                    
+                    
                     Array.from(villageMarkers).filter(marker => {
                         const chosenTexts = Array.from(marker.children).filter(text => text.id === lang)
                         const otherTexts = Array.from(marker.children).filter(text => text.id !== lang)
@@ -249,6 +251,12 @@ export default {
                         otherTexts.forEach(text => text.classList.remove('active'))
                         
                     })
+                })
+
+                eventBus.$on('hide-labels', () => {
+                    
+                    
+                    villageMarkers.forEach(marker => marker.style.visibility = 'hidden')
                 })
                 
 

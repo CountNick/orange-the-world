@@ -70,12 +70,12 @@ import { Carousel, Slide } from 'vue-carousel';
         }
     },
     mounted() {
-        console.log('route query: ', this.$route.query)
+        
 
         this.place_name = this.$route.query.place_name
 
         if(this.$language.chosen === "en") {
-          // console.log('language should be enlgish but is: ', )
+          
           this.information = this.$route.query.information[0].en
         } else {
           this.information = this.$route.query.information[1].nl
