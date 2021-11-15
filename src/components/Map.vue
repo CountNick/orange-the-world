@@ -256,6 +256,21 @@ export default {
                     0
                 ))
                 
+                eventBus.$on('change language', (lang) => {
+                    console.log('changed language to: ', lang)
+                    const villageMarkers = document.querySelectorAll('.village-marker')
+                    console.log(villageMarkers)
+                    Array.from(villageMarkers).filter(marker => {
+                        const chosenTexts = Array.from(marker.children).filter(text => text.id === lang)
+                        const otherTexts = Array.from(marker.children).filter(text => text.id !== lang)
+                        // console.log('found text: ', chosenTexts)
+                        // console.log('other text: ', otherTexts)
+                        chosenTexts.forEach(text => text.classList.add('active'))
+                        otherTexts.forEach(text => text.classList.remove('active'))
+                        
+                    })
+                })
+                
 
             })
       },
@@ -276,8 +291,8 @@ export default {
       },
       createCustomMarker(coordinates, elementType, text, id, className) {
 
-        const diffLong = coordinates[0] + 0.00014974447299209714;
-        const diffLat = coordinates[1] + 0.2928258217985239753;
+        const diffLong = coordinates[0] + 0.00044974447299209714;
+        const diffLat = coordinates[1] + 0.3998258217985239753;
 
         const element = document.createElement(elementType)
         
@@ -288,9 +303,12 @@ export default {
                 
                 if(i=== 0) {
                     paragraph.id = "en"
+                    paragraph.classList.add('active')
                 } else {
                     paragraph.id = "nl"
                 }
+
+                
 
                 element.appendChild(paragraph)
             })
@@ -336,6 +354,10 @@ export default {
         color: #fff;
         border-radius: 5px;
         animation: glow 2s infinite alternate;
+
+        #en, #nl {
+            display: none;
+        }
     }
 
     .village-marker::after {
@@ -349,6 +371,10 @@ export default {
         border-right: 10px solid transparent;
         border-top: 10px solid #ea5705;
         clear: both;
+    }
+
+    .active {
+        display: block !important;
     }
 
 
