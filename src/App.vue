@@ -8,10 +8,12 @@
           <router-link to="/">
           <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
           </router-link>
+          <language-switch/>
         </div>
       </nav>
     </div>
     <!--Index Page Here -->
+    
     <transition name="page-fade">
       <router-view/>
     </transition>
@@ -21,12 +23,12 @@
 
 <script>
 
-
+import  LanguageSwitch from '@/components/LanguageSwitch'
 
 export default {
   name: "App",
   components: {
-
+    LanguageSwitch
   },
 };
 </script>
@@ -54,7 +56,7 @@ nav {
   position: fixed;
   z-index: 2;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 4rem;
 }
 .header h3 {

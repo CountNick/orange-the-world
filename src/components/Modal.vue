@@ -70,10 +70,17 @@ import { Carousel, Slide } from 'vue-carousel';
         }
     },
     mounted() {
-        console.log(this.$route.query)
+        console.log('route query: ', this.$route.query)
 
         this.place_name = this.$route.query.place_name
-        this.information = this.$route.query.information
+
+        if(this.$language.chosen === "en") {
+          // console.log('language should be enlgish but is: ', )
+          this.information = this.$route.query.information[0].en
+        } else {
+          this.information = this.$route.query.information[1].nl
+        }
+        
         this.index = this.$route.params.index
 
     },

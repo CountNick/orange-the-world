@@ -11,6 +11,9 @@ Vue.prototype.$showMarker = 0
 Vue.prototype.$map = Vue.observable({
   loaded: false
 })
+Vue.prototype.$language = Vue.observable({
+  chosen: "en"
+})
 export const eventBus = new Vue()
 
 new Vue({

@@ -79,6 +79,7 @@ export default {
 
                 this.mapLoaded = true
                 const json = require('../assets/data.json')
+                
 
                 this.map.addSource('villages', {
                     type: 'geojson',
@@ -124,12 +125,13 @@ export default {
                     // replace data with clicked point data
                     this.place_data = clickedPlaceData
                     
-
+                    console.log('clickedPlaceData', JSON.parse(clickedPlaceData.information)[0])
+                    console.log('clickedPlaceData', JSON.parse(clickedPlaceData.information)[1])
                     this.$router.push({
                         path: `/village/${this.place_data.index}`,
                         query: { 
                             place_name: this.place_data.place_name,
-                            information: this.place_data.information
+                            information: JSON.parse(clickedPlaceData.information)
                             }
                     })
                     // show the popup
@@ -142,7 +144,10 @@ export default {
                         this.createCustomMarker(
                             village.geometry.coordinates,
                             'div',
-                            `We're starting the walk in ${village.properties.place_name}`,
+                            [
+                                `We're starting the walk in ${village.properties.place_name}`,
+                                `We beginnen de wandeling in ${village.properties.place_name}`
+                            ],
                             village.properties.index,
                             'village-marker'
                         )
@@ -151,7 +156,10 @@ export default {
                         this.createCustomMarker(
                             village.geometry.coordinates,
                             'div',
-                            `You just entered ${village.properties.place_name}`,
+                            [
+                                `You just entered ${village.properties.place_name}`,
+                                `Je bent aangekomen in ${village.properties.place_name}`
+                            ],
                             village.properties.index,
                             'village-marker'
                         )
@@ -274,7 +282,19 @@ export default {
         const element = document.createElement(elementType)
         
         if(text){
-            element.textContent = text
+            text.forEach((line, i) => {
+                const paragraph = document.createElement('p')
+                paragraph.textContent = line
+                
+                if(i=== 0) {
+                    paragraph.id = "en"
+                } else {
+                    paragraph.id = "nl"
+                }
+
+                element.appendChild(paragraph)
+            })
+            // element.textContent = text
         }
         
         element.id = id

@@ -1,144 +1,233 @@
 {
-    "type":"FeatureCollection",
-    "features":[
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 0,
-             "place_name":"Gendema",
-             "information": "Gendema lies in the far Southern part of Sierra Leone, on the international border with the Republic of Liberia and is a trading center between Sierra Leoneans and Liberians across the border. Hindolo is kicking off his journey here with a rally. The whole town has come to see the start of Hindolo's walk. It is a moment in which community and unity are central. Hindolo is not going to embark on the journey by himself. He will not only have his friend Dustyn to accompany him, but also around 50 young men who are ready to support the fight against violence against women in their country. After the rally, many people feel so inspired that they join Hindolo and Dustyn in their march against gender violence while crossing the country. Hindolo's walk is a national movement, both literally and figuratively!",
-             "images": [
-                 {
-                     "main": "https://i.pinimg.com/originals/b3/8d/51/b38d51881450bc1fe1b7b7d49109eb84.jpg"
-                 },
-                 {
-                     "secondary": "https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG"
-                 }
-             ]
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-11.3977, 7.94065]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 1,
-             "place_name":"Kenema",
-             "information": "Kenema is the third largest city in Sierra Leone (after Freetown and Bo), and the largest city in the country's Eastern Province. Kenema is one of Sierre Leone's most ethnically diverse cities.Hindolo is going to have all the men in Kenema recite a pledge, in which they promise to protect women and hold each other another accountable in case of harassment. Hindolo believes that the only way to effectively combat violence against women and girls is to change the social and cultural norms of men and boys, and he has dedicated his life to doing so. UN Women supports this wholeheartedly, which is why we pro-actively involve men and leaders to prevent violence against women."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-11.1833326, 7.8833298]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 2,
-             "place_name":"Koidu",
-             "information": "You have arrived at: Koidu (also known as Sefadu) Koidu Town (or Sefadu) is the capital and largest city of the diamond-rich Kono District in the Eastern Province of Sierra Leone. Koidu is one of the most ethnically and religiously diverse cities in Sierra Leone. The city is inhabited by significant numbers of many of Sierra Leone's ethnic groups, with no single ethnic group forming a majority. Hindolo is speaking to paramount and religious chiefs in Koidu to mobilize them to play an active role in ending gender-based violence. These chiefs hold and exercise decision-making power of behalf of their community, and thus play an important role in changing behavior, group norms and group mobilization. Most of the chiefs are male. UN Women is providing courses on the topic of violence against women. Trainings like these need to be carried out regularly, since there is a rapid turnover of persons in these functions, with new leaders having less right-based understanding and knowledge of violence against women. "
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-10.9714, 8.64387]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 3,
-             "place_name":"Kabala",
-             "information": "Kabala is the capital and largest town of Koinadugu District in the Northern Province of Sierra Leone. It is an agricultural centre and lies on the far north of Sierra Leone, with close proximity to Kono District and the international border with Guinea. The population of Kabala is predominantly Muslim, though there is a substantial Christian minority. Hindolo and his team are going to plant trees in Kabala. These trees are planted with a reason. Aside from decorating Kabala with a bit of greenery, the trees also carry a deeper meaning: they symbolize a new beginning for Sierra Leone. The walk of Hindolo will hopefully be the start of a nation-wide change to end gender-based violence."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-11.558911, 9.584412]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 4,
-             "place_name":"Laia",
-             "information": "Hindolo and his team are having a meal with the local community in Laia. These moments are important as it gives them the opportunity to hear stories directly from people in communities, including those of survivors of rape. Many survivors of gender violence keep silent, and many stories go untold. These stories provide Hindolo and his team with crucial research necessary for meaningful change."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-12.100734215067233, 9.449715351834769]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 5,
-             "place_name":"Kamakwie",
-             "information": "Kamakwie is a town in the North West Province of Sierra Leone. Since 2017 Kamakwie is the Capital of the Karene District in Chiefdom Sella Limba. It was a scene of heavy fighting between Nigerian-lead Ecomog troops and the Revolutionary United Front. Many people were killed, 90 houses were burned down, and several people had their arms or legs amputated. Hindolo is going to talk to schoolboys in Kamakwie. It is important to invest in the younger generation, as they are the future. By having these difficult conversations with young boys, they will be aware of what gender violence is and they will know how to identify and stop it from happening, as they grow older. "
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-12.240487, 9.498121]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 6,
-             "place_name":"Roten",
-             "information": "Hindolo and his team are holding a feet-washing ceremony, in which they wash the feet of 18 women in Roten. This is done to atone for the sinful acts of rape perpetrated by men against women in the country and publicly apologize to all women on behalf of all men for the wrongs committed by men. The number 18 symbolizes the age of maturity as well as the age of consent – NO means NO."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-12.53224, 8.74438]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 7,
-             "place_name":"Port Loko",
-             "information": "Port Loko is the capital of Port Loko District. It is home to the Port Loko Teacher's College, one of the oldest and best-known colleges in Sierra Leone. The area in and around Port Loko is a major bauxite mining and trade centre. The town lies on the main highway linking Freetown to Guinea's capital Conakry. Hindolo is visiting a ‘One Stop Centre’ in Port Loko. These One Stop Centres are essential for women that have experienced violence. There are a total of eight of these centres in Sierra Leone. Survivors can go there to receive multi-sectoral care, such as psychosocial counselling, a medical examination and treatment and legal support. While the centres currently succeed in providing a safe space for victims, UN Women aims to step up the quality of services and further professionalize the organisations, by investing in a digital database, improving availability of resources required to function up to the mandatory standards. Our expected results by 2022 are that 100 survivors will have been offered help via the One Stop Centres and that at least 10% of all reported cases related to gender-based violence are filed for court."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-12.785352, 8.768689]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 8,
-             "place_name":"Tagrin",
-             "information": "Hindolo is holding one last rally before reaching his final stop. People are joining him on his journey to the capital city of Sierra Leone. The solidarity walk was tough and painful, but Hindolo believes the pain he experienced is nothing compared to the pain and trauma of rape victims, as that trauma lives with the survivors for the rest of their lives. Hindolo’s walk has been incredibly impactful. Publicized by the local media, the walk caught the attention of citizens, the government and international organizations based in Sierra Leone."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-13.1333328, 8.5333312]
-          }
-       },
-       {
-          "type":"Feature",
-          "properties":{
-             "index": 9,
-             "place_name":"Freetown",
-             "information": "You have arrived at the final stop: Freetown! Thank you so much for participating in the Orange Challenge! We would love to see how your journey went. Please share your stories and photos on social media with the hashtag #OrangetheWorldNL."
-          },
-          "geometry":{
-             "type":"Point",
-             "coordinates":
-                [-13.231722, 8.465677]
-          }
-       }
-       
-    ]
+   "type": "FeatureCollection",
+   "features": [
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 0,
+            "place_name": "Gendema",
+            "information": [
+               {
+                  "en": "Gendema lies in the far Southern part of Sierra Leone, on the international border with the Republic of Liberia and is a trading center between Sierra Leoneans and Liberians across the border. Hindolo is kicking off his journey here with a rally. The whole town has come to see the start of Hindolo's walk. It is a moment in which community and unity are central. Hindolo is not going to embark on the journey by himself. He will not only have his friend Dustyn to accompany him, but also around 50 young men who are ready to support the fight against violence against women in their country. After the rally, many people feel so inspired that they join Hindolo and Dustyn in their march against gender violence while crossing the country. Hindolo's walk is a national movement, both literally and figuratively!"
+               },
+               {
+                  "nl": "Gendema ligt in het uiterste zuiden van Sierra Leone, aan de international grens met de Republiek Liberia en is een handelscentrum tussen Sierra Leoneanen en Liberianen aan de andere kant van de grens. Hindolo begint zijn reis hier met een rally. De hele stad is gekomen om de stad van Hindolo’s tocht bij te wonen. Het is een moment waarbij eenheid en het gemeenschapsgevoel central staan. Hindolo reist niet solo door het land; hij zal niet alleen vergezeld worden door zijn vriend Dustyn, maar ook door zo’n 50 jonge mannen die bereid zijn de strijd tegen geweld tegen vrouwen in hun land te steunen. Na de rally voelen veel mensen zich zo geïnspireerd dat ze zich bij Hindolo en Dustyn aansluiten in hun mars tegen gendergeweld terwijl ze het land doorkruisen. Hindolo’s tocht is een nationale beweging, letterlijk en figuurlijk! "
+               }
+            ],
+            "images": [
+               {
+                  "main": "https://i.pinimg.com/originals/b3/8d/51/b38d51881450bc1fe1b7b7d49109eb84.jpg"
+               },
+               {
+                  "secondary": "https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG"
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -11.3977,
+               7.94065
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 1,
+            "place_name": "Kenema",
+            "information": [
+               {
+                  "en": "Kenema is the third largest city in Sierra Leone (after Freetown and Bo), and the largest city in the country's Eastern Province. Kenema is one of Sierre Leone's most ethnically diverse cities.Hindolo is going to have all the men in Kenema recite a pledge, in which they promise to protect women and hold each other another accountable in case of harassment. Hindolo believes that the only way to effectively combat violence against women and girls is to change the social and cultural norms of men and boys, and he has dedicated his life to doing so. UN Women supports this wholeheartedly, which is why we pro-actively involve men and leaders to prevent violence against women."
+               },
+               {
+                  "nl": "Kenema is de derde grootste stad in Sierra Leone (na Freetown en Bo), en de grootste stad in de oosterlijke provincie van het land. Kenema is één van de meest ethnisch diverse steden van Sierra Leone. Hindolo laat alle mannen in Kenema een medestander pledge opzeggen, waarin zij beloven vrouwen te beschermen en elkaar ter verantwoording te roepen in geval van intimidatie. Hindolo gelooft dat de enige effectieve manier om geweld tegen vrouwen en meisjes te bestrijden is door de sociale en culturele normen van mannen en jongens te veranderen. UN Women staat hier volledig achter en daarom betrekken we mannen en leiders proactief bij het voorkomen van geweld tegen vrouwen. "
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -11.1833326,
+               7.8833298
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 2,
+            "place_name": "Koidu",
+            "information": [
+               {
+                  "en": "You have arrived at: Koidu (also known as Sefadu) Koidu Town (or Sefadu) is the capital and largest city of the diamond-rich Kono District in the Eastern Province of Sierra Leone. Koidu is one of the most ethnically and religiously diverse cities in Sierra Leone. The city is inhabited by significant numbers of many of Sierra Leone's ethnic groups, with no single ethnic group forming a majority. Hindolo is speaking to paramount and religious chiefs in Koidu to mobilize them to play an active role in ending gender-based violence. These chiefs hold and exercise decision-making power of behalf of their community, and thus play an important role in changing behavior, group norms and group mobilization. Most of the chiefs are male. UN Women is providing courses on the topic of violence against women. Trainings like these need to be carried out regularly, since there is a rapid turnover of persons in these functions, with new leaders having less right-based understanding and knowledge of violence against women. "
+               },
+               {
+                  "nl": "Koidu Town (of Sefadu) is de hoofdstad en de grootste stad van het diamantrijke Kono-district in de oostelijke provincie van Sierra Leone. Koidu is één van de meest etnisch en religieus diverse steden in Sierra Leone. De stad wordt bewoond door veel verschillende etnische groepen in Sierra Leone, waarbij geen enkele etnische groep de meerderheid vormt. Hindolo spreekt met het opperhoofd en de religieuze leider in Koidu om hen te mobiliseren een actieve rol te spelen in het beëindigen van gendergerelateerd geweld. Deze stamhoofden hebben de beslissingsbevoegdheid namens hun gemeenschap, en spelen du seen belangrijke rol in het veranderen van gedrag, groepsnormen en groepsmobilisatie. De meeste stamhoofden zijn mannen. UN Women geeft cursussen over gendergerelateerd geweld. Deze trainingen moeten regelmatig worden gegeven, omdat er een snel verloop is van personen in deze leidinggevende functies, waarbij nieuwe leiders minder goed op de hoogte zijn van geweld tegen vrouwen. "
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -10.9714,
+               8.64387
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 3,
+            "place_name": "Kabala",
+            "information": [
+               {
+                  "en": "Kabala is the capital and largest town of Koinadugu District in the Northern Province of Sierra Leone. It is an agricultural centre and lies on the far north of Sierra Leone, with close proximity to Kono District and the international border with Guinea. The population of Kabala is predominantly Muslim, though there is a substantial Christian minority. Hindolo and his team are going to plant trees in Kabala. These trees are planted with a reason. Aside from decorating Kabala with a bit of greenery, the trees also carry a deeper meaning: they symbolize a new beginning for Sierra Leone. The walk of Hindolo will hopefully be the start of a nation-wide change to end gender-based violence."
+               },
+               {
+                  "nl": "Kabala is de hoofdstad en de grootste stad van het district Koinadugu in de noordelijke provincie van Sierra Leone. Het is het landelijk agrarisch centrum en ligt in het uiterste noorden van Sierra Leone, in de nabijheid van het district Kono en de international grens met Guinee. De bevolking van Kabala is overwegend moslim, hoewel er een aanzienlijke christelijke minderheid is. Hindolo en zijn team gaan bomen planten in Kabala. Deze bomen worden met een reden geplant. Behalve dat ze Kabala opfleuren met een beetje groen, dragen de bomen ook een diepere betekenis: ze symboliseren een nieuw begin voor Sierra Leone. De wandeling van Hindolo zal hopelijk het begin zijn van een landelijke verandering om een einde te maken aan gender-gerelateerd geweld. "
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -11.558911,
+               9.584412
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 4,
+            "place_name": "Laia",
+            "information": [
+               {
+                  "en": "Hindolo and his team are having a meal with the local community in Laia. These moments are important as it gives them the opportunity to hear stories directly from people in communities, including those of survivors of rape. Many survivors of gender violence keep silent, and many stories go untold. These stories provide Hindolo and his team with crucial research necessary for meaningful change."
+               },
+               {
+                  "nl": "Hindolo en zijn team nuttigen een maaltijd met de plaatselijke gemeenschap in Laia. Deze momenten zijn belangrijk omdat het ze de kans geeft om verhalen te horen van mensen in de gemeenschappen, waaronder die van overlevenden van verkrachting. Veel overlevenden van gendergeweld zwijgen, terwijl hun verhalen juist gehoord moeten worden."
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -12.100734215067233,
+               9.449715351834769
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 5,
+            "place_name": "Kamakwie",
+            "information": [
+               {
+                  "en": "Kamakwie is a town in the North West Province of Sierra Leone. Since 2017 Kamakwie is the Capital of the Karene District in Chiefdom Sella Limba. It was a scene of heavy fighting between Nigerian-lead Ecomog troops and the Revolutionary United Front. Many people were killed, 90 houses were burned down, and several people had their arms or legs amputated. Hindolo is going to talk to schoolboys in Kamakwie. It is important to invest in the younger generation, as they are the future. By having these difficult conversations with young boys, they will be aware of what gender violence is and they will know how to identify and stop it from happening, as they grow older. "
+               },
+               {
+                  "nl": "Kamakwie is een stad in de noordwestelijke provincie van Sierra Leone. Sinds 2017 is Kamakwie de hoofdstad van het Karene-district in Chiefdom Sella Limba. Het was het toneel van hevige gevechten tussen door Nigerianen geleide Ecomog-troepen en het Revolutionair Verenigd Front. Veel mensen werden vermoord, negentig huizen zijn in brand gestoken en bij verschillende mensen werden ledematen geamputeerd. Hindolo gaat praten met de schooljongens van Kamakwie. Het is belangrijk om te investeren in de jongere generatie, want zij zijn de toekomst. Door gesprekken over gendergerelateerd geweld met jonge jongens te voeren, zullen zij zich bewust worden van wat gendergeweld inhoudt en kunnen ze het herkennen en voorkomen. "
+               }
+               ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -12.240487,
+               9.498121
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 6,
+            "place_name": "Roten",
+            "information": [
+               {
+                  "en": "Hindolo and his team are holding a feet-washing ceremony, in which they wash the feet of 18 women in Roten. This is done to atone for the sinful acts of rape perpetrated by men against women in the country and publicly apologize to all women on behalf of all men for the wrongs committed by men. The number 18 symbolizes the age of maturity as well as the age of consent – NO means NO."
+               },
+               {
+                  "nl": "Hindolo en zijn team houden een ceremonie waarbij ze de voeten wassen van 18 vrouwen in Roten. Dit wordt gedaan om boete te doen voor zondige daden, zoals verkrachtig, tegen vrouwen en om namens alle mannen publiekelijk excuses aan te bieden aan alle vrouwen voor het onrecht dat door mannen is gepleegd. Het getal 18 symboliseert zowel de leeftijd van volwassenheid als de leeftijd van consent – NEE betekent NEE."
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -12.53224,
+               8.74438
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 7,
+            "place_name": "Port Loko",
+            "information": [
+               {
+                  "en": "Port Loko is the capital of Port Loko District. It is home to the Port Loko Teacher's College, one of the oldest and best-known colleges in Sierra Leone. The area in and around Port Loko is a major bauxite mining and trade centre. The town lies on the main highway linking Freetown to Guinea's capital Conakry. Hindolo is visiting a ‘One Stop Centre’ in Port Loko. These One Stop Centres are essential for women that have experienced violence. There are a total of eight of these centres in Sierra Leone. Survivors can go there to receive multi-sectoral care, such as psychosocial counselling, a medical examination and treatment and legal support. While the centres currently succeed in providing a safe space for victims, UN Women aims to step up the quality of services and further professionalize the organisations, by investing in a digital database, improving availability of resources required to function up to the mandatory standards. Our expected results by 2022 are that 100 survivors will have been offered help via the One Stop Centres and that at least 10% of all reported cases related to gender-based violence are filed for court."
+               },
+               {
+                  "nl": "Port Loko is de hoofdstad van het district Port Loko. Het is de thuisbasis van het Port Loko Teacher’s College, één van de oudste en bekendste colleges in Sierra Leone. Het gebied in en rond Port Loko is een belangrijk bauxietmijnbouw- en handelscentrum. De stad ligt aan de belangrijkste verbindingsweg tussen Freetown en de hoofdstad van Guiee, Conakry. Hindolo bezoekt een ‘One Stop Centre’ in Port Loko. Deze One Stop Centres zijnv an essentieel belang voor vrouwen die te maken hebben gehad met geweld. Er zijn in totaal acht van deze centra in Sierra Leone. Overlevenden kunnen er terecht voor multisectorale zorg, zoals psychoscoiale begelediging, medisch onderzoek en behanddeling, en juridische ondersteuning. Hoewel de centra er momenteel in slagen om slachtoffers een veilige ruimte te bieden, wil UN Women de kwaliteit van de diensten verhogen en de organisaties verbeteren, door te investeren in een digitale databank en de beschikbaarheid van middelen te verbeteren. Onze verwachte resultaten in 2022 zijn dat 100 overlevenden hulp hebben gekregen via de One Stop Centres en dat ten minste 10% van alle gemelde zaken met betrekking tot gendergerelateerd geweld voor de rechter worden gebracht."
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -12.785352,
+               8.768689
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 8,
+            "place_name": "Tagrin",
+            "information": [
+               {
+                  "en": "Hindolo is holding one last rally before reaching his final stop. People are joining him on his journey to the capital city of Sierra Leone. The solidarity walk was tough and painful, but Hindolo believes the pain he experienced is nothing compared to the pain and trauma of rape victims, as that trauma lives with the survivors for the rest of their lives. Hindolo’s walk has been incredibly impactful. Publicized by the local media, the walk caught the attention of citizens, the government and international organizations based in Sierra Leone."
+               },
+               {
+                  "nl": "Hindolo houdt nog een laatste bijeenkomst voor hij zijn laatste halte bereikt. Mensen vergezellen hem op zijn tocht naar de hoofdstad van Sierra Leone. De solidariteitswandeling was zwaar en pijnlijk, maar Hindolo gelooft dat de pijn die hij tijdens de wandeling heeft ervaren niet is vergeleken met de pijn en het trauma van de slachtoffers van gendergerelateerd geweld. Hindolo’s tocht heeft de kranten van de lokale media gehaald, waardoor er veel aandacht voor de tocht kwam van burgers, de regering en internationale organisaties die in Sierra Leone gevestigd zijn."
+                  }
+               ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -13.1333328,
+               8.5333312
+            ]
+         }
+      },
+      {
+         "type": "Feature",
+         "properties": {
+            "index": 9,
+            "place_name": "Freetown",
+            "information": [
+               {
+                  "en": "You have arrived at the final stop: Freetown! Thank you so much for participating in the Orange Challenge! We would love to see how your journey went. Please share your stories and photos on social media with the hashtag #OrangetheWorldNL."
+               },
+               {
+                  "nl": "Je bent aangekomen bij de laatste halte: Freetown! Hartelijk dank voor je deelname aan de Orange Challenge! We zouden het ontzettend leuk vinden om te zien hoe jouw reis is verlopen. Deel je verhaal en foto’s op social media met de hashtag #OrangetheWorldNL. "
+               }
+            ]
+         },
+         "geometry": {
+            "type": "Point",
+            "coordinates": [
+               -13.231722,
+               8.465677
+            ]
+         }
+      }
+   ]
 }
