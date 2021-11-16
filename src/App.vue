@@ -82,7 +82,7 @@ nav {
 }
 
 .header__img {
-  width: 2.5rem;
+  width: 3rem;
 }
 
 @media only screen and (min-width: 750px) {
