@@ -8,7 +8,8 @@
   </div>
   
   <div class="getting__location" v-if="gettingLocation">
-    <i>Getting location...</i>
+    <i v-if="$language.chosen == 'en'">Getting location...</i>
+    <i v-else>Locatie ophalen...</i>
   </div>
   
   <!-- <div v-if="startLocation">
