@@ -40,7 +40,7 @@
                 <button
                 v-if="$language.chosen == 'en'"
                 type="button"
-                class="btn-green"
+                class="btn-orange"
                 @click="$router.back()"
                 >
                 Back
@@ -48,7 +48,7 @@
                 <button
                 v-else
                 type="button"
-                class="btn-green"
+                class="btn-orange"
                 @click="$router.back()"
                 >
                 Terug
@@ -174,11 +174,12 @@ import { Carousel, Slide } from 'vue-carousel';
     background: transparent;
   }
 
-  .btn-green {
+  .btn-orange {
     color: white;
     background: #ea5705;
     border: 1px solid #ea5705;
     font-size: .9em;
+    padding: 1rem;
     border-radius: 2px;
   }
 
@@ -193,7 +194,11 @@ import { Carousel, Slide } from 'vue-carousel';
   }
 
   .carousel__img {
-      width: 100%;
+    width: 100%;
+  }
+
+  .VueCarousel-dot--active {
+    background-color: grey !important;
   }
 
   @media only screen and (min-width: 750px) {

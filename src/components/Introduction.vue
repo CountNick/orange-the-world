@@ -3,7 +3,7 @@
     <article class="introduction__article" v-show="loading == false">
         <h1 class="introduction__title">{{ content.title }}</h1>
         <div class="introduction__summary">
-            <img class="summary__img" src="https://static.spacecrafted.com/f37fddf4d72c4bd1b48e97008a4a78ba/i/d29ef1e47a324d899cec873587a04846/1/4SoifmQp45JMgBnHp7ed2/Hindolo%20Pokawa.jpg" alt="">
+            <img class="summary__img" src="https://www.slfnd.org/uploads/1/3/3/4/133433220/whatsapp-image-2021-01-18-at-6-46-46-am_orig.jpeg" alt="">
 
             <p class="summary__text">
             {{ content.content }}
@@ -61,10 +61,10 @@ export default {
 
         margin: 0 1em;
         color: #fff;
-        padding-top: 6rem;
+        padding-top: 8rem;
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: 120%;
         justify-content: space-around;
 
         .introduction__title {
@@ -77,9 +77,14 @@ export default {
             display: flex;
             width: 100%;
             flex-direction: column;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-evenly;
             
             .summary__img {
-                width: 50%;
+                width: 100%;
             }
 
             .summary__text {
