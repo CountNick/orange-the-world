@@ -112,7 +112,6 @@ export default {
                         path: `/village/${this.place_data.index}`,
                         query: { 
                             place_name: this.place_data.place_name,
-                            information: JSON.parse(clickedPlaceData.information)
                             }
                     })
                     // show the popup

@@ -73,6 +73,9 @@ nav {
     font-weight: 600;
     letter-spacing: 8px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .header a {

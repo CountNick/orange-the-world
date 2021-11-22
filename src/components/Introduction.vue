@@ -61,7 +61,7 @@ export default {
 
         margin: 0 1em;
         color: #fff;
-        padding-top: 4rem;
+        padding-top: 6rem;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -80,6 +80,10 @@ export default {
             
             .summary__img {
                 width: 50%;
+            }
+
+            .summary__text {
+                line-height: 1.5;
             }
         }
 

@@ -21,14 +21,12 @@
 
             <section class="modal-body">
                 <slot name="body">
-                    <carousel :perPage="1">
-  <slide>
-    <img class="carousel__img" src="https://i.pinimg.com/originals/b3/8d/51/b38d51881450bc1fe1b7b7d49109eb84.jpg" alt="">
-  </slide>
-  <slide>
-    <img class="carousel__img" src="https://www.ibike.org/bikeafrica/sierra-leone/essay/2010/IMG_9909.JPG" alt="">
-  </slide>
-</carousel>
+                <carousel v-if="images" :perPage="1">
+
+                    <slide v-for="image in images" :key="image.link">
+                    <img class="carousel__img" :src='image.link' alt="">
+                    </slide>
+                </carousel>
                 <p class="modal__information">
                 {{ information }}
                 </p>
@@ -66,22 +64,29 @@ import { Carousel, Slide } from 'vue-carousel';
         return {
             place_name: "This is the default title!",
             information: "This is the default body!",
-            index: "null"
+            index: "null",
+            images: []
         }
     },
     mounted() {
-        
 
-        this.place_name = this.$route.query.place_name
+        const json = require('../assets/data.json')
+
+        const village = json.features.find(village => village.properties.place_name === this.$route.query.place_name)
+        
+        this.images = village.properties.images
+
+        this.place_name = village.properties.place_name
 
         if(this.$language.chosen === "en") {
           
-          this.information = this.$route.query.information[0].en
+          this.information = village.properties.information[0].en
         } else {
-          this.information = this.$route.query.information[1].nl
+          this.information = village.properties.information[1].nl
         }
         
         this.index = this.$route.params.index
+        // this.images = 
 
     },
     methods: {
@@ -115,6 +120,10 @@ import { Carousel, Slide } from 'vue-carousel';
     width: 100%;
     height: 100%;
     background: #000;
+  }
+
+  .modal__information {
+    line-height: 1.5;
   }
 
   .modal-header,
