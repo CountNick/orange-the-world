@@ -38,11 +38,20 @@
                 Stop number: {{ index }}
                 </slot>
                 <button
+                v-if="$language.chosen == 'en'"
                 type="button"
                 class="btn-green"
                 @click="$router.back()"
                 >
                 Back
+                </button>
+                <button
+                v-else
+                type="button"
+                class="btn-green"
+                @click="$router.back()"
+                >
+                Terug
                 </button>
             </footer>
             </div>
