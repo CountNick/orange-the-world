@@ -64,7 +64,7 @@ export default {
         padding-top: 8rem;
         display: flex;
         flex-direction: column;
-        height: 120%;
+        height: 135vh;
         justify-content: space-around;
 
         .introduction__title {

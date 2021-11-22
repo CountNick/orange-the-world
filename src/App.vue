@@ -6,14 +6,15 @@
         <div class="header">
           <router-link to="/" @click.native="hideLabels()">
           <h3 class="header__title">Orange Challenge</h3>
-          
-          <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
+          <span>
+            <img class="header__img" src="../public/img/icons/OTW_logo.png" alt="">
+          </span>
           </router-link>
           <language-switch/>
         </div>
       </nav>
     </div>
-    <!--Index Page Here -->
+    
     
     <transition name="page-fade">
       <router-view/>
