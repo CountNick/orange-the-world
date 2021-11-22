@@ -88,6 +88,10 @@ nav {
   width: 3rem;
 }
 
+.VueCarousel-dot--active {
+  background-color: grey;
+}
+
 @media only screen and (min-width: 750px) {
 
   .header h3 {

@@ -55,6 +55,7 @@ export default {
             background: none;
             border: none;
             font-weight: bolder;
+            width: 8rem;
         }
     }
 
