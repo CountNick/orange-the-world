@@ -55,6 +55,8 @@ body {
 nav {
   background: #ffffff;
   box-shadow: 0px 2px 5px rgba(0, 58, 78, 0.15);
+  display: flex;
+  justify-content: center;
 }
 .header {
   display: flex;
@@ -63,8 +65,8 @@ nav {
   background: rgba(1, 1, 1, 0.5);
   position: fixed;
   z-index: 2;
-  width: 100%;
-  justify-content: space-around;
+  width: 90%;
+  justify-content: space-between;
   height: 4rem;
 }
 .header h3 {
