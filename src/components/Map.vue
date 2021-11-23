@@ -130,7 +130,21 @@ export default {
                             village.properties.index,
                             'village-marker'
                         )
-                    } else {
+                    } else if(village.properties.index === 9) {
+                        this.createCustomMarker(
+                            village.geometry.coordinates,
+                            'div',
+                            [
+                                `You reached the final destination: ${village.properties.place_name}`,
+                                `Je hebt de eindbestemming bereikt: ${village.properties.place_name}`
+                            ],
+                            village.properties.index,
+                            'village-marker'
+                        )
+                    } 
+                    
+                    
+                    else {
 
                         this.createCustomMarker(
                             village.geometry.coordinates,
