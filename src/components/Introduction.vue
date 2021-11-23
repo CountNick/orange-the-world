@@ -61,7 +61,7 @@ export default {
 
         margin: 0 1em;
         color: #fff;
-        padding-top: 8rem;
+        padding-top: 7rem;
         display: flex;
         flex-direction: column;
         height: 135vh;
