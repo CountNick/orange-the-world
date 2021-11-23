@@ -11,7 +11,7 @@
 
             <h3>Location data</h3>
             <p>
-                Welcome to the Orange the World Challenge! In order fot his application to work you'll need to enable location services for this application. When pressing the "Start challenge" button the browser will ask for permission to use your location, if you deny access you won't be able to keep track of the distance you've walked. The location data is not being saved for privacy reasons. If you accidentally did not allow the application to use location data but still want to make use of this feature it's possible to empty your browser's cache and reload the page.
+                Welcome to the Orange the World Challenge! In order for his application to work you'll need to enable location services for this application. When pressing the "Start challenge" button the browser will ask for permission to use your location, if you deny access you won't be able to keep track of the distance you've walked. The location data is not being saved for privacy reasons. If you accidentally did not allow the application to use location data but still want to make use of this feature it's possible to empty your browser's cache and reload the page.
             </p>
             
             <h3>I don't want you to use my location</h3>
