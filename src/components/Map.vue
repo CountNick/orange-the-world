@@ -106,8 +106,7 @@ export default {
                     // replace data with clicked point data
                     this.place_data = clickedPlaceData
                     
-                    console.log('clickedPlaceData', JSON.parse(clickedPlaceData.information)[0])
-                    console.log('clickedPlaceData', JSON.parse(clickedPlaceData.information)[1])
+                    
                     this.$router.push({
                         path: `/village/${this.place_data.index}`,
                         query: { 

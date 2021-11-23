@@ -108,6 +108,7 @@ export default {
         .introduction__article {
             flex-direction: row;
             flex-wrap: wrap;
+            height: unset;
 
             .introduction__title {
                 font-size: 3em;
@@ -115,9 +116,10 @@ export default {
 
             .introduction__summary {
                 flex-direction: row;
+                height: unset;
 
                 .summary__img {
-                    width: 30%;
+                    width: 50%;
                     object-fit: cover;
                 }
 
