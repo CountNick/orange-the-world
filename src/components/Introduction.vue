@@ -112,14 +112,16 @@ export default {
 
             .introduction__title {
                 font-size: 3em;
+                margin-bottom: 1rem;
             }
 
             .introduction__summary {
                 flex-direction: row;
                 height: unset;
+                margin-bottom: 1rem;
 
                 .summary__img {
-                    width: 50%;
+                    width: 40%;
                     object-fit: cover;
                 }
 

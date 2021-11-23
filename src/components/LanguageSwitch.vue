@@ -59,4 +59,13 @@ export default {
         }
     }
 
+    @media only screen and (min-width: 750px) {
+        .language-switch__container {
+        
+            .language-switch__btn {
+                width: unset;
+            }
+        }
+    }
+
 </style>
