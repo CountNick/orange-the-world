@@ -259,8 +259,8 @@ export default {
                         const chosenTexts = Array.from(marker.children).filter(text => text.id === lang)
                         const otherTexts = Array.from(marker.children).filter(text => text.id !== lang)
                         
-                        chosenTexts.forEach(text => text.classList.add('active'))
-                        otherTexts.forEach(text => text.classList.remove('active'))
+                        chosenTexts.forEach(text => text.classList.add('custom-marker--active'))
+                        otherTexts.forEach(text => text.classList.remove('custom-marker--active'))
                         
                     })
                 })
@@ -291,7 +291,7 @@ export default {
       },
       createCustomMarker(coordinates, elementType, text, id, className) {
 
-        const diffLong = coordinates[0] + 0.00044974447299209714;
+        const diffLong = coordinates[0] + 0.06944974447299209714;
         const diffLat = coordinates[1] + 0.3998258217985239753;
 
         const element = document.createElement(elementType)
@@ -303,12 +303,12 @@ export default {
                 
                 if(i=== 0) {
                     paragraph.id = "en"
-                    paragraph.classList.add('active')
+                    paragraph.classList.add('custom-marker--active')
                 } else {
                     paragraph.id = "nl"
                 }
 
-                
+                paragraph.insertAdjacentHTML('beforeend', `<span class="material-icons">touch_app</span>`)
 
                 element.appendChild(paragraph)
             })
@@ -375,6 +375,11 @@ export default {
 
     .active {
         display: block !important;
+    }
+    
+    .custom-marker--active {
+        display: flex !important;
+        align-items: end;
     }
 
 
