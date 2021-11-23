@@ -57,14 +57,16 @@ nav {
   box-shadow: 0px 2px 5px rgba(0, 58, 78, 0.15);
   display: flex;
   justify-content: center;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background: rgba(1, 1, 1, 0.5);
+
 }
 .header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: rgba(1, 1, 1, 0.5);
-  position: fixed;
-  z-index: 2;
   width: 90%;
   justify-content: space-between;
   height: 4rem;
