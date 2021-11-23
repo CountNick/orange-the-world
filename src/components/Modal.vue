@@ -195,10 +195,16 @@ import { Carousel, Slide } from 'vue-carousel';
 
   .carousel__img {
     width: 100%;
+    object-fit: contain;
   }
 
   .VueCarousel-dot--active {
     background-color: grey !important;
+  }
+
+  .VueCarousel-slide {
+    display: flex;
+    justify-self: center;
   }
 
   @media only screen and (min-width: 750px) {
